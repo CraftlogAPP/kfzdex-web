@@ -100,6 +100,45 @@
     .band h2 { margin-bottom: 10px; }
     .band p { color: var(--muted); margin-bottom: 22px; }
 
+    /* Dexware Suite */
+    .suite { background: linear-gradient(180deg, rgba(249,115,22,.10), var(--surface2)); border: 2px solid rgba(249,115,22,.55);
+      border-radius: 22px; padding: 34px 30px; margin-top: 26px; box-shadow: 0 24px 60px rgba(249,115,22,.10); }
+    .suite-pill { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+      color: #fff; background: var(--accent); padding: 6px 14px; border-radius: 999px; }
+    .suite h2 { margin-top: 16px; }
+    .suite .sec-lead { max-width: 700px; }
+    .suite-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    @media (max-width: 680px) { .suite-prices { grid-template-columns: 1fr; } }
+    .sp { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; position: relative; }
+    .sp.best { border-color: var(--accent); box-shadow: 0 12px 34px rgba(249,115,22,.14); }
+    .sp-badge { position: absolute; top: -12px; right: 16px; font-size: 11.5px; font-weight: 800;
+      color: #052e12; background: #4ADE80; padding: 4px 11px; border-radius: 999px; }
+    .sp-name { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+    .sp.best .sp-name { color: var(--accent); }
+    .sp-strike { color: var(--muted); font-size: 14px; text-decoration: line-through; margin-top: 10px; }
+    .sp-amount { font-size: 32px; font-weight: 850; letter-spacing: -0.8px; }
+    .sp-amount small { font-size: 14px; font-weight: 600; color: var(--muted); }
+    .sp-note { color: var(--muted); font-size: 13px; margin-top: 4px; }
+    .suite-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
+    .suite-icons img { width: 42px; height: 42px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); }
+    .suite ul { list-style: none; margin-top: 18px; }
+    .suite li { font-size: 14.5px; padding: 5px 0; }
+    .suite li::before { content: "★  "; color: var(--accent); }
+    .suite-how { color: var(--muted); font-size: 13.5px; margin-top: 18px; margin-bottom: 20px; }
+
+    /* Cross-Promo: die Dexware-Familie */
+    .promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
+    @media (max-width: 680px) { .promo-grid { grid-template-columns: 1fr; } }
+    .promo { display: flex; align-items: center; gap: 14px; background: linear-gradient(180deg, var(--surface), var(--surface2));
+      border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; transition: transform .18s ease, border-color .18s ease; }
+    .promo:hover { transform: translateY(-3px); border-color: var(--pc, var(--accent)); }
+    .promo img { width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0; }
+    .promo h3 { font-size: 15.5px; font-weight: 750; color: var(--pc, var(--text)); }
+    .promo p { color: var(--muted); font-size: 13px; line-height: 1.45; margin-top: 2px; }
+    .promo .go { margin-left: auto; color: var(--muted); font-weight: 800; }
+    .all-link { text-align: center; margin-top: 22px; }
+    .all-link a { color: var(--accent); font-weight: 700; font-size: 14px; }
+
     footer { border-top: 1px solid var(--border); margin-top: 36px; padding: 30px 0 52px; }
     .foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
     .foot .muted { color: var(--muted); font-size: 13px; }
@@ -122,6 +161,7 @@
         <a href="#funktionen">Funktionen</a>
         <a href="#pflichten">Pflichten</a>
         <a href="#preise">Preise</a>
+        <a href="#suite">Suite</a>
         <a href="https://dexware.app/">Dexware</a>
       </nav>
     </header>
@@ -209,6 +249,49 @@
         <b>Zum Vergleich:</b> Große Fuhrpark-Anbieter kassieren 10–20 € <b>pro Fahrzeug</b> und Monat.
         Bei 10 Fahrzeugen sind das über 100 € monatlich — KfzDex kostet einen Bruchteil davon, für den ganzen Betrieb.
       </div>
+
+      <!-- Dexware Suite Bundle -->
+      <div class="suite" id="suite">
+        <span class="suite-pill">Dexware Suite — ein Abo, alle Apps</span>
+        <h2>Alle 8 Dexware-Apps. <span class="hl">Ein Abo.</span></h2>
+        <p class="sec-lead">
+          Die Suite kostet so viel wie unsere teuerste Einzel-App — und schaltet <b>alle</b> Dexware-Apps
+          auf allen deinen Geräten frei. Neue Apps kommen automatisch dazu, ohne Aufpreis.
+        </p>
+        <div class="suite-prices">
+          <div class="sp">
+            <div class="sp-name">Monatlich</div>
+            <div class="sp-strike">über 90 € — alle Apps einzeln</div>
+            <div class="sp-amount">29,99 € <small>/ Monat</small></div>
+            <div class="sp-note">Der Preis unserer teuersten Einzel-App — über 65 % günstiger als alles einzeln.</div>
+          </div>
+          <div class="sp best">
+            <span class="sp-badge">4 Monate geschenkt · −33 %</span>
+            <div class="sp-name">Jährlich</div>
+            <div class="sp-strike">statt 359,88 € (12 × 29,99 €)</div>
+            <div class="sp-amount">239,99 € <small>/ Jahr</small></div>
+            <div class="sp-note">Entspricht 20,00 € im Monat — du zahlst nur 8 von 12 Monaten.</div>
+          </div>
+        </div>
+        <div class="suite-icons">
+          <img src="kfzdex-icon.png" alt="KfzDex" title="KfzDex" />
+          <img src="pruefdex-icon.png" alt="PrüfDex" title="PrüfDex" />
+          <img src="schutzdex-icon.png" alt="SchutzDex" title="SchutzDex" />
+          <img src="baumdex-icon.png" alt="BaumDex" title="BaumDex" />
+          <img src="winterdex-icon.png" alt="WinterDex" title="WinterDex" />
+          <img src="routelog-icon.png" alt="TourDex" title="TourDex" />
+          <img src="craftlog-icon.png" alt="CraftDex" title="CraftDex" />
+          <img src="archio-icon.png" alt="DokuDex" title="DokuDex" />
+        </div>
+        <ul>
+          <li>Alle 8 Apps inklusive — von UVV bis Winterdienst</li>
+          <li>Alle zukünftigen Dexware-Apps automatisch dabei</li>
+          <li>Einmal kaufen — in jeder App freigeschaltet</li>
+          <li>Jederzeit kündbar</li>
+        </ul>
+        <p class="suite-how">Erhältlich direkt in jeder Dexware-App: einfach in der App auf „Pro werden" tippen und die Dexware Suite wählen.</p>
+        <a class="btn btn-primary" href="https://dexware.app/" target="_blank" rel="noopener">Mehr zur Dexware Suite →</a>
+      </div>
     </section>
 
     <section>
@@ -217,6 +300,50 @@
         <p>KfzDex ist Teil der Dexware-Suite — Software fürs Handwerk, Compliance aus einer Hand.</p>
         <a class="btn btn-primary" href="mailto:2easy4trash@gmail.com?subject=KfzDex%20Interesse">Beim Start benachrichtigen</a>
       </div>
+    </section>
+
+    <section id="mehr">
+      <div class="sec-eyebrow">Die Dexware-Familie</div>
+      <h2>Mehr von Dexware</h2>
+      <p class="sec-lead">KfzDex ist eine von acht Apps — jede löst genau eine Pflicht. Zusammen in der Dexware Suite am stärksten.</p>
+      <div class="promo-grid">
+        <a class="promo" style="--pc:#2563EB" href="https://pruefdex.dexware.app" target="_blank" rel="noopener">
+          <img src="pruefdex-icon.png" alt="PrüfDex" />
+          <span><h3>PrüfDex</h3><p>DGUV-V3-Prüfung elektrischer Betriebsmittel — QR, Protokoll, Plakette.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#5B8DF7" href="https://schutzdex.dexware.app" target="_blank" rel="noopener">
+          <img src="schutzdex-icon.png" alt="SchutzDex" />
+          <span><h3>SchutzDex</h3><p>KI-Unterweisung &amp; Gefährdungsbeurteilung — prüffest dokumentiert.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#4ADE80" href="https://baumdex-portal.vercel.app" target="_blank" rel="noopener">
+          <img src="baumdex-icon.png" alt="BaumDex" />
+          <span><h3>BaumDex</h3><p>Baumkataster &amp; Verkehrssicherung — Kontrollen rechtssicher dokumentieren.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#38BDF8" href="https://winterdex.dexware.app" target="_blank" rel="noopener">
+          <img src="winterdex-icon.png" alt="WinterDex" />
+          <span><h3>WinterDex</h3><p>Winterdienst-Nachweis — Räum- &amp; Streueinsätze gerichtsfest dokumentieren.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#60A5FA" href="https://tourdex.dexware.app" target="_blank" rel="noopener">
+          <img src="routelog-icon.png" alt="TourDex" />
+          <span><h3>TourDex</h3><p>Automatisches Fahrtenbuch — Fahrten per GPS erkennen, steuerfertig als PDF.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#E8C97A" href="https://craftdex.dexware.app" target="_blank" rel="noopener">
+          <img src="craftlog-icon.png" alt="CraftDex" />
+          <span><h3>CraftDex</h3><p>Projekt-Tagebuch fürs Handwerk — Schritte, Material und Stunden im Blick.</p></span>
+          <span class="go">→</span>
+        </a>
+        <a class="promo" style="--pc:#4F9EF8" href="https://dokudex.dexware.app" target="_blank" rel="noopener">
+          <img src="archio-icon.png" alt="DokuDex" />
+          <span><h3>DokuDex</h3><p>Dokumente scannen &amp; per KI verstehen — Belege, Verträge und mehr.</p></span>
+          <span class="go">→</span>
+        </a>
+      </div>
+      <p class="all-link"><a href="https://dexware.app/" target="_blank" rel="noopener">Alle Dexware-Apps auf einen Blick →</a></p>
     </section>
 
     <footer>
