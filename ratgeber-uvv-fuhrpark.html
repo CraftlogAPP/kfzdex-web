@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UVV-Prüfung für Firmenfahrzeuge (DGUV Vorschrift 70) & Führerscheinkontrolle: Pflichten des Fuhrparks</title>
+  <meta name="description" content="UVV-Prüfung Pflicht für Firmenfahrzeuge nach DGUV Vorschrift 70: jährlich durch einen Sachkundigen — nicht identisch mit der HU. Dazu Führerscheinkontrolle (üblich halbjährlich), Fahrerunterweisung und Halterhaftung im Fuhrpark verständlich erklärt." />
+  <meta name="robots" content="all" />
+  <meta name="theme-color" content="#0C1017" />
+  <link rel="canonical" href="https://kfzdex.dexware.app/ratgeber-uvv-fuhrpark.html" />
+  <meta property="og:title" content="UVV-Prüfung & Führerscheinkontrolle: Pflichten des Fuhrparks" />
+  <meta property="og:description" content="DGUV Vorschrift 70, Halterhaftung, Führerscheinkontrolle und Fahrerunterweisung — Fristen und Pflichten im Fuhrpark verständlich erklärt." />
+  <meta property="og:type" content="article" />
+  <style>
+    :root {
+      --bg: #0C1017; --surface: #151B26; --surface2: #10161F; --border: #2A3447;
+      --text: #EAEEF5; --muted: #9AA5B8; --accent: #F97316; --accent2: #FB923C;
+      --success: #16A34A; --warning: #F59E0B; --danger: #EF4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(1000px 560px at 15% -100px, rgba(249,115,22,.14), transparent 65%),
+        radial-gradient(800px 520px at 95% 5%, rgba(251,146,60,.08), transparent 60%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65; -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+
+    header { padding: 24px 0; display: flex; align-items: center; gap: 12px; }
+    .logo { width: 42px; height: 42px; background: var(--accent); border-radius: 11px; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(249,115,22,.35); }
+    .brand { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; }
+    .brand b { color: var(--accent); }
+    .nav-spacer { flex: 1; }
+    nav a { color: var(--muted); font-size: 14px; margin-left: 22px; }
+    nav a:hover { color: var(--text); }
+    @media (max-width: 600px) { nav { display: none; } }
+
+    .crumbs { font-size: 13px; color: var(--muted); padding: 6px 0 0; }
+    .crumbs a { color: var(--muted); }
+    .crumbs a:hover { color: var(--text); }
+
+    article { padding: 20px 0 8px; }
+    .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase;
+      color: #FDBA74; background: rgba(249,115,22,.12); border: 1px solid rgba(249,115,22,.35);
+      padding: 7px 14px; border-radius: 999px; margin: 22px 0 20px; }
+    h1 { font-size: 40px; font-weight: 850; letter-spacing: -1.1px; line-height: 1.14; }
+    h1 .hl { background: linear-gradient(120deg, #FDBA74, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .lead { font-size: 18px; color: var(--muted); margin-top: 20px; }
+    @media (max-width: 600px) { h1 { font-size: 30px; } .lead { font-size: 16px; } }
+
+    article h2 { font-size: 26px; font-weight: 850; letter-spacing: -0.5px; margin: 44px 0 8px; }
+    article h3 { font-size: 18px; font-weight: 750; margin: 26px 0 6px; }
+    article p { color: #C9D2E1; font-size: 16px; margin-top: 12px; }
+    article ul { margin: 12px 0 0 0; padding-left: 22px; }
+    article li { color: #C9D2E1; font-size: 16px; margin: 6px 0; }
+    article strong { color: var(--text); }
+    .sec-eyebrow { color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
+
+    .note { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 14px; padding: 18px 20px; margin-top: 20px; }
+    .note h3 { margin-top: 0; }
+    .note p { color: var(--muted); font-size: 15px; }
+
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+    @media (max-width: 680px) { .compare { grid-template-columns: 1fr; } }
+    .card { background: linear-gradient(180deg, var(--surface), var(--surface2)); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+    .card .fi { font-size: 24px; }
+    .card h3 { font-size: 17px; font-weight: 800; margin: 10px 0 4px; }
+    .card p { color: var(--muted); font-size: 14.5px; margin-top: 6px; }
+    .card .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .4px; padding: 4px 10px; border-radius: 999px; margin-top: 12px; }
+    .tag-uvv { color: #FDBA74; background: rgba(249,115,22,.14); border: 1px solid rgba(249,115,22,.35); }
+    .tag-hu { color: #9AC7FF; background: rgba(91,141,247,.13); border: 1px solid rgba(91,141,247,.35); }
+
+    table { width: 100%; border-collapse: collapse; margin: 18px 0 4px; font-size: 15px; }
+    caption { text-align: left; color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    td, th { border: 1px solid var(--border); padding: 11px 13px; text-align: left; vertical-align: top; }
+    th { background: var(--surface); font-weight: 750; color: var(--text); }
+    td { color: #C9D2E1; }
+    .badge { display: inline-block; font-size: 12.5px; font-weight: 800; padding: 3px 9px; border-radius: 8px; }
+    .b12 { color: #FCA5A5; background: rgba(239,68,68,.13); }
+    .b6 { color: #FCD34D; background: rgba(245,158,11,.13); }
+    .table-scroll { overflow-x: auto; }
+
+    details { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 4px 20px; margin-top: 12px; }
+    details[open] { border-color: rgba(249,115,22,.45); }
+    summary { cursor: pointer; font-weight: 750; font-size: 16.5px; padding: 16px 0; list-style: none; color: var(--text); position: relative; padding-right: 28px; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 22px; font-weight: 700; color: var(--accent); }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); font-size: 15px; margin: 0 0 16px; }
+
+    .band { background: linear-gradient(135deg, #3a2415, #171009); border: 1px solid rgba(249,115,22,.35);
+      border-radius: 20px; padding: 36px 28px; text-align: center; margin: 44px 0 8px; }
+    .band h2 { margin: 0 0 10px; font-size: 24px; }
+    .band p { color: var(--muted); margin: 0 auto 22px; max-width: 560px; }
+    .btn { display: inline-block; font-size: 15px; font-weight: 700; padding: 13px 26px; border-radius: 12px; border: 1px solid transparent; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent2); }
+
+    .disclaimer { color: var(--muted); font-size: 13px; margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--border); }
+
+    footer { border-top: 1px solid var(--border); margin-top: 30px; padding: 30px 0 52px; }
+    .foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .foot .muted { color: var(--muted); font-size: 13px; }
+    .foot a { color: var(--muted); font-size: 13px; margin-left: 16px; }
+    .foot a:hover { color: var(--text); }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Ist die UVV-Prüfung dasselbe wie die HU (TÜV)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nein. Die Hauptuntersuchung (HU) nach § 29 StVZO prüft die Verkehrssicherheit und wird bei Pkw alle 24 Monate durch eine amtlich anerkannte Überwachungsorganisation wie TÜV oder DEKRA durchgeführt. Die UVV-Prüfung nach DGUV Vorschrift 70 prüft dagegen die Arbeitssicherheit, ist jährlich fällig und wird durch einen Sachkundigen (befähigte Person) vorgenommen. Beide Prüfungen haben unterschiedliche Rechtsgrundlagen und ersetzen sich nicht gegenseitig — eine bestandene HU befreit nicht von der jährlichen UVV-Prüfung."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie oft muss ein Firmenfahrzeug UVV-geprüft werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nach DGUV Vorschrift 70 muss der Unternehmer Fahrzeuge nach Bedarf, mindestens jedoch einmal jährlich durch einen Sachkundigen prüfen lassen. Der Prüfzyklus beträgt also 12 Monate. Bei besonders beanspruchten Fahrzeugen kann eine häufigere Prüfung erforderlich sein."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wer darf die UVV-Prüfung der Fahrzeuge durchführen?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Die UVV-Prüfung nach DGUV Vorschrift 70 darf nur ein Sachkundiger bzw. eine befähigte Person durchführen. Das ist, wer aufgrund seiner fachlichen Ausbildung und Erfahrung ausreichende Kenntnisse auf dem Gebiet der zu prüfenden Fahrzeuge hat — typischerweise ein Kfz-Meister, Kfz-Techniker oder eine entsprechend qualifizierte Werkstatt. Eine Prüfung durch die eigene Fachwerkstatt ist möglich, sofern die Person sachkundig ist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Wie oft muss der Arbeitgeber den Führerschein kontrollieren?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ein gesetzlich fest vorgeschriebenes Intervall gibt es nicht. In der Praxis hat sich eine halbjährliche Kontrolle (zweimal pro Jahr) etabliert, um der Halterverantwortung nachzukommen. Entscheidend ist, dass die Kontrolle regelmäßig erfolgt, den physischen Führerschein umfasst und nachvollziehbar dokumentiert wird."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Was droht ohne dokumentierte Führerscheinkontrolle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Wer als Halter ein Fahrzeug einem Fahrer ohne gültige Fahrerlaubnis überlässt, macht sich nach § 21 StVG wegen Zulassens des Fahrens ohne Fahrerlaubnis strafbar — hier drohen Geldstrafe oder Freiheitsstrafe. Fehlt eine dokumentierte, regelmäßige Kontrolle, kann dem Unternehmen zudem ein Organisationsverschulden vorgeworfen werden. Die Dokumentation dient als Nachweis, dass der Halter seiner Sorgfaltspflicht nachgekommen ist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Müssen Fahrer regelmäßig unterwiesen werden?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Fahrer betrieblicher Fahrzeuge müssen vor der ersten Tätigkeit und danach mindestens einmal jährlich unterwiesen werden. Die jährliche Unterweisung ergibt sich aus den allgemeinen Pflichten des Arbeitsschutzes (DGUV Vorschrift 1) in Verbindung mit DGUV Vorschrift 70. Sie sollte dokumentiert werden."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Gilt die UVV-Pflicht auch für Anhänger und Leasingfahrzeuge?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ja. Die jährliche Prüfpflicht nach DGUV Vorschrift 70 gilt für alle betrieblich genutzten Fahrzeuge und Anhänger, unabhängig von der Eigentumsform. Auch geleaste oder gemietete Fahrzeuge, die im Betrieb eingesetzt werden, müssen geprüft werden. Verantwortlich ist der Unternehmer, der die Fahrzeuge einsetzt."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="index.html" style="display:flex;align-items:center;gap:12px">
+        <span class="logo">
+          <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
+            <path d="M22 68 A 32 32 0 1 1 78 68" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+            <line x1="50" y1="62" x2="68" y2="40" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="brand">Kfz<b>Dex</b></span>
+      </a>
+      <span class="nav-spacer"></span>
+      <nav>
+        <a href="index.html#funktionen">Funktionen</a>
+        <a href="index.html#pflichten">Pflichten</a>
+        <a href="index.html#preise">Preise</a>
+        <a href="ratgeber-uvv-fuhrpark.html">Ratgeber</a>
+      </nav>
+    </header>
+
+    <p class="crumbs"><a href="index.html">Start</a> &nbsp;›&nbsp; Ratgeber &nbsp;›&nbsp; UVV-Prüfung & Führerscheinkontrolle</p>
+
+    <article>
+      <span class="eyebrow">Ratgeber Fuhrpark-Compliance</span>
+      <h1>UVV-Prüfung für Firmenfahrzeuge und Führerscheinkontrolle: <span class="hl">Welche Pflichten hat der Fuhrpark wirklich?</span></h1>
+      <p class="lead">
+        Wer betrieblich Fahrzeuge einsetzt, muss mehr erfüllen als nur die HU. Jährliche UVV-Prüfung
+        nach DGUV Vorschrift 70, regelmäßige Führerscheinkontrolle und Fahrerunterweisung gehören
+        genauso dazu — und bei Versäumnissen haftet der Halter persönlich. Dieser Ratgeber erklärt
+        die Pflichten, die Fristen und das häufigste Missverständnis.
+      </p>
+
+      <h2>Warum ein Firmenfahrzeug mehr braucht als die HU</h2>
+      <p>
+        Sobald ein Fahrzeug betrieblich genutzt wird, gilt es arbeitsschutzrechtlich als Arbeitsmittel.
+        Damit greifen Pflichten, die dem privaten Halter fremd sind: die regelmäßige Prüfung auf
+        arbeitssicheren Zustand, die Kontrolle der Fahrerlaubnis jedes eingesetzten Fahrers und die
+        Unterweisung der Fahrer. Diese Pflichten treffen den Unternehmer bzw. Halter — und sie sind
+        unabhängig davon, ob das Fahrzeug im Eigentum steht, geleast oder gemietet ist.
+      </p>
+      <p>
+        Das größte Missverständnis in der Praxis: Viele Betriebe glauben, mit einer gültigen
+        Hauptuntersuchung („TÜV") sei alles erledigt. Das ist falsch. HU und UVV-Prüfung sind zwei
+        verschiedene Prüfungen mit unterschiedlichem Zweck, unterschiedlichem Intervall und
+        unterschiedlichem Prüfer.
+      </p>
+
+      <h2>UVV-Prüfung ist nicht gleich HU — der wichtigste Unterschied</h2>
+      <p>
+        Die beiden Prüfungen verfolgen völlig unterschiedliche Ziele. Eine bestandene HU befreit
+        einen Betrieb <strong>nicht</strong> von der jährlichen UVV-Prüfung — und umgekehrt.
+      </p>
+      <div class="compare">
+        <div class="card">
+          <div class="fi">🔧</div>
+          <h3>UVV-Prüfung (DGUV Vorschrift 70)</h3>
+          <p><strong>Zweck:</strong> Arbeitssicherheit. Schutz von Fahrern und Dritten im betrieblichen Einsatz.</p>
+          <p><strong>Intervall:</strong> mindestens einmal jährlich (12 Monate).</p>
+          <p><strong>Prüfer:</strong> Sachkundiger / befähigte Person (z. B. Kfz-Meister, Fachwerkstatt).</p>
+          <p><strong>Grundlage:</strong> DGUV Vorschrift 70 „Fahrzeuge" der Berufsgenossenschaft.</p>
+          <span class="tag tag-uvv">Arbeitsschutz · jährlich</span>
+        </div>
+        <div class="card">
+          <div class="fi">🏛️</div>
+          <h3>Hauptuntersuchung (HU, § 29 StVZO)</h3>
+          <p><strong>Zweck:</strong> Verkehrssicherheit im Straßenverkehr allgemein.</p>
+          <p><strong>Intervall:</strong> bei Pkw i. d. R. alle 24 Monate.</p>
+          <p><strong>Prüfer:</strong> amtlich anerkannte Überwachungsorganisation (TÜV, DEKRA, GTÜ …).</p>
+          <p><strong>Grundlage:</strong> § 29 StVZO, bundesweit einheitlich geregelt.</p>
+          <span class="tag tag-hu">Verkehrssicherheit · alle 2 Jahre</span>
+        </div>
+      </div>
+      <div class="note">
+        <h3>Merksatz</h3>
+        <p>Die HU sagt, ob das Fahrzeug am Straßenverkehr teilnehmen darf. Die UVV-Prüfung sagt, ob
+        es im Betrieb als Arbeitsmittel sicher eingesetzt werden darf. Ein Fuhrpark braucht beides.</p>
+      </div>
+
+      <h2>Wer darf die UVV-Prüfung durchführen?</h2>
+      <p>
+        Die UVV-Prüfung nach DGUV Vorschrift 70 darf nur ein <strong>Sachkundiger</strong> bzw. eine
+        <strong>befähigte Person</strong> vornehmen. Sachkundig ist, wer aufgrund seiner fachlichen
+        Ausbildung und Erfahrung über ausreichende Kenntnisse auf dem Gebiet der zu prüfenden Fahrzeuge
+        verfügt und mit den einschlägigen Vorschriften vertraut ist. In der Praxis sind das
+        typischerweise Kfz-Meister, Kfz-Techniker oder eine entsprechend qualifizierte Werkstatt.
+      </p>
+      <p>
+        Der Betrieb kann die Prüfung an eine externe Werkstatt vergeben oder — bei entsprechend
+        qualifiziertem Personal — intern durchführen. Wichtig ist, dass die prüfende Person nachweislich
+        sachkundig ist und die Prüfung dokumentiert.
+      </p>
+
+      <h2>Was bei der UVV-Prüfung geprüft wird</h2>
+      <p>
+        Geprüft wird der arbeitssichere Zustand des gesamten Fahrzeugs. Der genaue Umfang richtet sich
+        nach Fahrzeugart und Einsatzbedingungen, umfasst aber typischerweise:
+      </p>
+      <ul>
+        <li><strong>Bremsanlage</strong> — Betriebs-, Feststell- und ggf. Hilfsbremse.</li>
+        <li><strong>Beleuchtung und Signaleinrichtungen</strong> — Scheinwerfer, Blinker, Warnanlagen.</li>
+        <li><strong>Bereifung und Räder</strong> — Profil, Zustand, Befestigung.</li>
+        <li><strong>Lenkung und Fahrwerk.</strong></li>
+        <li><strong>Sicht und Sicherheitseinrichtungen</strong> — Scheiben, Spiegel, Gurte.</li>
+        <li><strong>Aufbau- und Ladungssicherung</strong> — je nach Fahrzeugart auch Anhängerkupplung, Ladebordwand, Zurrpunkte.</li>
+        <li><strong>Betriebssicherheit besonderer Einrichtungen</strong> — abhängig vom Fahrzeugtyp.</li>
+      </ul>
+      <p>
+        Das Ergebnis wird protokolliert. Festgestellte Mängel sind zu beheben; sicherheitsrelevante
+        Mängel können den Einsatz des Fahrzeugs bis zur Behebung ausschließen.
+      </p>
+
+      <h2>Führerscheinkontrolle: Pflicht des Halters</h2>
+      <p>
+        Wer als Unternehmer ein Fahrzeug einem Mitarbeiter überlässt, muss sicherstellen, dass dieser
+        eine gültige Fahrerlaubnis besitzt. Überlässt der Halter das Fahrzeug einer Person ohne
+        Fahrerlaubnis, macht er sich nach <strong>§ 21 StVG</strong> wegen Zulassens des Fahrens ohne
+        Fahrerlaubnis strafbar — mit der Folge von Geldstrafe oder Freiheitsstrafe.
+      </p>
+      <p>
+        Ein gesetzlich fest vorgeschriebenes Kontrollintervall existiert nicht. In der Praxis hat sich
+        eine <strong>halbjährliche Kontrolle</strong> (zweimal pro Jahr) durchgesetzt, um der
+        Sorgfaltspflicht des Halters zu genügen. Kontrolliert wird der physische Führerschein durch
+        Sichtprüfung; jede Kontrolle wird mit Datum und Prüfer dokumentiert. Nur die dokumentierte,
+        regelmäßige Kontrolle belegt im Ernstfall, dass der Betrieb seiner Pflicht nachgekommen ist.
+      </p>
+
+      <h2>Fahrerunterweisung: jährlich</h2>
+      <p>
+        Fahrer betrieblicher Fahrzeuge müssen vor der ersten Tätigkeit und danach regelmäßig
+        unterwiesen werden. Aus den allgemeinen Arbeitsschutzpflichten (DGUV Vorschrift 1) in
+        Verbindung mit DGUV Vorschrift 70 ergibt sich ein Turnus von <strong>mindestens einmal
+        jährlich</strong>. Inhalt sind unter anderem das sichere Führen des Fahrzeugs, Ladungssicherung
+        und das Verhalten bei Mängeln. Auch die Unterweisung sollte dokumentiert werden.
+      </p>
+
+      <h2>Fristen-Übersicht auf einen Blick</h2>
+      <p>Diese drei wiederkehrenden Pflichten sollte jeder Fuhrpark im Blick behalten:</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Übliche Prüf- und Kontrollintervalle im betrieblichen Fuhrpark</caption>
+          <thead>
+            <tr><th>Pflicht</th><th>Intervall</th><th>Durch wen</th><th>Grundlage</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>UVV-Prüfung der Fahrzeuge</strong></td>
+              <td><span class="badge b12">alle 12 Monate</span></td>
+              <td>Sachkundiger / befähigte Person</td>
+              <td>DGUV Vorschrift 70</td>
+            </tr>
+            <tr>
+              <td><strong>Führerscheinkontrolle</strong></td>
+              <td><span class="badge b6">üblich alle 6 Monate</span></td>
+              <td>Halter / beauftragte Person</td>
+              <td>Halterhaftung, § 21 StVG</td>
+            </tr>
+            <tr>
+              <td><strong>Fahrerunterweisung</strong></td>
+              <td><span class="badge b12">alle 12 Monate</span></td>
+              <td>Unternehmer / Vorgesetzter</td>
+              <td>DGUV Vorschrift 1 &amp; 70</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:14px;color:var(--muted)">
+        Die 6-Monats-Frist der Führerscheinkontrolle ist kein starres Gesetz, sondern gängige Praxis
+        zur Erfüllung der Sorgfaltspflicht. Betriebe können je nach Risiko auch kürzere Intervalle wählen.
+      </p>
+
+      <h2>Dokumentation und Halterhaftung</h2>
+      <p>
+        Der Halter ist nach <strong>§ 31 StVZO</strong> dafür verantwortlich, dass seine Fahrzeuge in
+        vorschriftsmäßigem Zustand sind und nur geeigneten Personen überlassen werden. Kommt es zu
+        einem Unfall oder einer Kontrolle, prüfen Behörden, Berufsgenossenschaft und Gerichte, ob der
+        Betrieb seine Pflichten erfüllt hat.
+      </p>
+      <p>
+        Zentral ist dabei der Vorwurf des <strong>Organisationsverschuldens</strong>: Wer nicht
+        nachweisen kann, dass Prüfungen, Kontrollen und Unterweisungen regelmäßig und nachvollziehbar
+        stattgefunden haben, trägt im Ernstfall die Verantwortung — mit Folgen von Bußgeldern über
+        den Verlust des Versicherungsschutzes bis hin zu strafrechtlicher Verantwortung. Deshalb gilt:
+        Nicht die Prüfung allein zählt, sondern der <strong>lückenlose Nachweis</strong>, dass sie
+        stattgefunden hat.
+      </p>
+      <div class="note">
+        <h3>Praxis-Tipp</h3>
+        <p>Führen Sie für jedes Fahrzeug und jeden Fahrer eine nachvollziehbare Historie: Prüfdatum,
+        Prüfer, Ergebnis, festgestellte Mängel und deren Behebung. Ein prüffestes Protokoll pro Termin
+        ist im Streitfall Ihr wichtigster Beleg.</p>
+      </div>
+
+      <h2>Häufige Fragen (FAQ)</h2>
+
+      <details>
+        <summary>Ist die UVV-Prüfung dasselbe wie die HU (TÜV)?</summary>
+        <p>Nein. Die Hauptuntersuchung (HU) nach § 29 StVZO prüft die Verkehrssicherheit und wird bei
+        Pkw alle 24 Monate durch eine amtlich anerkannte Überwachungsorganisation wie TÜV oder DEKRA
+        durchgeführt. Die UVV-Prüfung nach DGUV Vorschrift 70 prüft dagegen die Arbeitssicherheit, ist
+        jährlich fällig und wird durch einen Sachkundigen (befähigte Person) vorgenommen. Beide
+        Prüfungen haben unterschiedliche Rechtsgrundlagen und ersetzen sich nicht gegenseitig — eine
+        bestandene HU befreit nicht von der jährlichen UVV-Prüfung.</p>
+      </details>
+      <details>
+        <summary>Wie oft muss ein Firmenfahrzeug UVV-geprüft werden?</summary>
+        <p>Nach DGUV Vorschrift 70 muss der Unternehmer Fahrzeuge nach Bedarf, mindestens jedoch einmal
+        jährlich durch einen Sachkundigen prüfen lassen. Der Prüfzyklus beträgt also 12 Monate. Bei
+        besonders beanspruchten Fahrzeugen kann eine häufigere Prüfung erforderlich sein.</p>
+      </details>
+      <details>
+        <summary>Wer darf die UVV-Prüfung der Fahrzeuge durchführen?</summary>
+        <p>Die UVV-Prüfung nach DGUV Vorschrift 70 darf nur ein Sachkundiger bzw. eine befähigte Person
+        durchführen. Das ist, wer aufgrund seiner fachlichen Ausbildung und Erfahrung ausreichende
+        Kenntnisse auf dem Gebiet der zu prüfenden Fahrzeuge hat — typischerweise ein Kfz-Meister,
+        Kfz-Techniker oder eine entsprechend qualifizierte Werkstatt. Eine Prüfung durch die eigene
+        Fachwerkstatt ist möglich, sofern die Person sachkundig ist.</p>
+      </details>
+      <details>
+        <summary>Wie oft muss der Arbeitgeber den Führerschein kontrollieren?</summary>
+        <p>Ein gesetzlich fest vorgeschriebenes Intervall gibt es nicht. In der Praxis hat sich eine
+        halbjährliche Kontrolle (zweimal pro Jahr) etabliert, um der Halterverantwortung nachzukommen.
+        Entscheidend ist, dass die Kontrolle regelmäßig erfolgt, den physischen Führerschein umfasst
+        und nachvollziehbar dokumentiert wird.</p>
+      </details>
+      <details>
+        <summary>Was droht ohne dokumentierte Führerscheinkontrolle?</summary>
+        <p>Wer als Halter ein Fahrzeug einem Fahrer ohne gültige Fahrerlaubnis überlässt, macht sich
+        nach § 21 StVG wegen Zulassens des Fahrens ohne Fahrerlaubnis strafbar — hier drohen Geldstrafe
+        oder Freiheitsstrafe. Fehlt eine dokumentierte, regelmäßige Kontrolle, kann dem Unternehmen
+        zudem ein Organisationsverschulden vorgeworfen werden. Die Dokumentation dient als Nachweis,
+        dass der Halter seiner Sorgfaltspflicht nachgekommen ist.</p>
+      </details>
+      <details>
+        <summary>Müssen Fahrer regelmäßig unterwiesen werden?</summary>
+        <p>Ja. Fahrer betrieblicher Fahrzeuge müssen vor der ersten Tätigkeit und danach mindestens
+        einmal jährlich unterwiesen werden. Die jährliche Unterweisung ergibt sich aus den allgemeinen
+        Pflichten des Arbeitsschutzes (DGUV Vorschrift 1) in Verbindung mit DGUV Vorschrift 70. Sie
+        sollte dokumentiert werden.</p>
+      </details>
+      <details>
+        <summary>Gilt die UVV-Pflicht auch für Anhänger und Leasingfahrzeuge?</summary>
+        <p>Ja. Die jährliche Prüfpflicht nach DGUV Vorschrift 70 gilt für alle betrieblich genutzten
+        Fahrzeuge und Anhänger, unabhängig von der Eigentumsform. Auch geleaste oder gemietete
+        Fahrzeuge, die im Betrieb eingesetzt werden, müssen geprüft werden. Verantwortlich ist der
+        Unternehmer, der die Fahrzeuge einsetzt.</p>
+      </details>
+
+      <div class="band">
+        <h2>Alle Fristen automatisch im Blick</h2>
+        <p>KfzDex überwacht UVV-Prüfung, Führerscheinkontrolle und Unterweisung für jedes Fahrzeug und
+        jeden Fahrer — mit Fristen-Ampel, Erinnerungen und prüffesten PDF-Nachweisen. Ein Preis für den
+        ganzen Betrieb.</p>
+        <a class="btn btn-primary" href="index.html">KfzDex kennenlernen →</a>
+      </div>
+
+      <p class="disclaimer">
+        Dieser Ratgeber gibt einen allgemeinen Überblick und wurde nach bestem Wissen erstellt. Er
+        ersetzt keine Rechtsberatung. Maßgeblich sind die jeweils geltenden Vorschriften und der
+        konkrete Einzelfall; die Verantwortung für die Einhaltung der Pflichten bleibt beim Halter bzw.
+        Unternehmer. Stand: Juli 2026.
+      </p>
+    </article>
+
+    <footer>
+      <div class="foot">
+        <span class="muted">© 2026 Dexware · KfzDex</span>
+        <span>
+          <a href="index.html">Start</a>
+          <a href="https://dexware.app/">Dexware-Suite</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </span>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
