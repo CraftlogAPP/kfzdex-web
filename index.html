@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" class="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>KfzDex — UVV-Prüfung & Führerscheinkontrolle für deinen Fuhrpark</title>
   <meta name="description" content="Fuhrpark-Pflichten im Griff: UVV-Prüfung (DGUV Vorschrift 70) und Führerscheinkontrolle (§21 StVG) mit Fristen-Ampel, Erinnerungen und prüffesten PDF-Nachweisen. Ein Preis für den ganzen Betrieb." />
-  <meta name="robots" content="all" />
-  <meta name="theme-color" content="#0C1017" />
+  <meta name="theme-color" content="#0b0f15" />
   <!-- seo:start -->
   <link rel="icon" type="image/png" href="/kfzdex-icon.png" />
   <link rel="canonical" href="https://kfzdex.dexware.app/" />
@@ -25,403 +24,442 @@
   <meta name="twitter:image" content="https://kfzdex.dexware.app/og-image.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"KfzDex","url":"https://kfzdex.dexware.app/","description":"Fuhrpark-Pflichten im Griff: UVV-Prüfung (DGUV Vorschrift 70) und Führerscheinkontrolle (§21 StVG) mit Fristen-Ampel, Erinnerungen und prüffesten PDF-Nachweisen. Ein Preis für den ganzen Betrieb.","operatingSystem":"Android","applicationCategory":"BusinessApplication","image":"https://kfzdex.dexware.app/og-image.png","inLanguage":"de","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR","description":"Kostenlos starten, Pro-Abo in der App"},"publisher":{"@type":"Organization","name":"Dexware","url":"https://dexware.app/"}}</script>
   <!-- seo:end -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Zahle ich pro Fahrzeug?","acceptedAnswer":{"@type":"Answer","text":"Nein. Pro kostet einen festen Preis für den ganzen Betrieb — egal ob 3 oder 30 Fahrzeuge. Große Fuhrpark-Anbieter rechnen dagegen oft 10 bis 20 € pro Fahrzeug und Monat ab."}},{"@type":"Question","name":"Wie oft muss der Führerschein kontrolliert werden?","acceptedAnswer":{"@type":"Answer","text":"Das Gesetz nennt keine feste Frist; üblich ist eine Kontrolle bei Fahrzeugüberlassung und danach zweimal jährlich. In KfzDex wählst du je Fahrer 3, 6 oder 12 Monate. Mehr im Ratgeber Führerscheinkontrolle."}},{"@type":"Question","name":"Wer darf die UVV-Prüfung durchführen?","acceptedAnswer":{"@type":"Answer","text":"Ein Sachkundiger bzw. eine befähigte Person — typischerweise Kfz-Meister, Kfz-Techniker oder eine Fachwerkstatt. KfzDex führt durch die Checkliste und dokumentiert das Ergebnis. Mehr im Ratgeber UVV-Prüfung."}},{"@type":"Question","name":"Gibt es KfzDex auch am PC?","acceptedAnswer":{"@type":"Answer","text":"Ja — im Dexware-Dashboard siehst du Fahrzeuge, Fahrer und alle Fristen mit Ampel im Browser."}},{"@type":"Question","name":"Wo liegen meine Daten?","acceptedAnswer":{"@type":"Answer","text":"In einem Rechenzentrum in der EU-Region. Fotos vom Führerschein bleiben auf deinem Gerät. Details in der Datenschutzerklärung."}}]}</script>
+  <link rel="preload" href="assets/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
   <style>
+    @font-face { font-family: 'Inter'; src: url('assets/inter-latin-var.woff2') format('woff2');
+      font-weight: 100 900; font-style: normal; font-display: swap; }
     :root {
-      --bg: #0C1017; --surface: #151B26; --surface2: #10161F; --border: #2A3447;
-      --text: #EAEEF5; --muted: #9AA5B8; --accent: #F97316; --accent2: #FB923C;
-      --success: #16A34A; --warning: #F59E0B; --danger: #EF4444;
+      --accent: #F97316;
+      --on-accent: #1f0b00;
+      --radius: 16px;
+      --wrap: 1120px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background:
-        radial-gradient(1000px 560px at 15% -100px, rgba(249,115,22,.14), transparent 65%),
-        radial-gradient(800px 520px at 95% 5%, rgba(251,146,60,.08), transparent 60%),
-        var(--bg);
-      background-attachment: fixed;
-      color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      line-height: 1.6; -webkit-font-smoothing: antialiased;
+    html.light {
+      --bg: #ffffff;
+      --bg-soft: color-mix(in oklab, #f7f7f9 96%, var(--accent));
+      --surface: #ffffff;
+      --border: color-mix(in oklab, #e7e7eb 94%, var(--accent));
+      --ink: #0d0d12;
+      --muted: #5c5c69;
+      --accent-text: color-mix(in oklab, var(--accent) 82%, #000);
+      --accent-soft: color-mix(in oklab, var(--accent) 10%, #fff);
+      --card: var(--surface);
+      --shadow: 0 1px 2px rgba(16,16,24,.04), 0 8px 24px -12px rgba(16,16,24,.12);
+      color-scheme: light;
     }
-    a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+    html.dark {
+      --bg: #0b0f15;
+      --bg-soft: color-mix(in oklab, #0b0f15 96%, #fff);
+      --surface: color-mix(in oklab, #0b0f15 93%, #fff);
+      --card: linear-gradient(180deg, rgba(255,255,255,.045), rgba(255,255,255,.02));
+      --border: rgba(255,255,255,.085);
+      --ink: #f6f5f7;
+      --muted: #aaa4ad;
+      --accent-text: color-mix(in oklab, var(--accent) 70%, #fff);
+      --accent-soft: color-mix(in oklab, var(--accent) 18%, transparent);
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px -16px rgba(0,0,0,.6);
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
+    body { background: var(--bg); color: var(--ink);
+      font: 400 16px/1.6 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-feature-settings: 'cv11', 'ss01'; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--accent-text); text-decoration: none; }
+    a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+    img { max-width: 100%; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
+    @media (max-width: 600px) { .wrap { padding: 0 16px; } }
+    .i { width: 20px; height: 20px; flex: none; }
 
-    header { padding: 24px 0; display: flex; align-items: center; gap: 12px; }
-    .logo { width: 42px; height: 42px; background: var(--accent); border-radius: 11px; display: grid; place-items: center; box-shadow: 0 6px 18px rgba(249,115,22,.35); }
-    .brand { font-size: 21px; font-weight: 800; letter-spacing: -0.4px; }
-    .brand b { color: var(--accent); }
-    .nav-spacer { flex: 1; }
-    nav a { color: var(--muted); font-size: 14px; margin-left: 22px; }
-    nav a:hover { color: var(--text); }
-    @media (max-width: 600px) { nav { display: none; } }
+    /* Kopfzeile */
+    .top { position: sticky; top: 0; z-index: 40; background: color-mix(in oklab, var(--bg) 82%, transparent);
+      -webkit-backdrop-filter: saturate(1.4) blur(14px); backdrop-filter: saturate(1.4) blur(14px);
+      border-bottom: 1px solid transparent; transition: border-color .2s; }
+    .top.scrolled { border-bottom-color: var(--border); }
+    .top .wrap { display: flex; align-items: center; gap: 28px; height: 64px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; font-size: 17px; letter-spacing: -.01em; }
+    .brand:hover { text-decoration: none; }
+    .brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .brand .wm span { color: var(--accent-text); }
+    .top nav { display: flex; gap: 24px; margin-left: auto; }
+    .top nav a { color: var(--muted); font-size: 14.5px; font-weight: 500; }
+    .top nav a:hover { color: var(--ink); text-decoration: none; }
+    @media (max-width: 760px) { .top nav { display: none; } .top .btn { margin-left: auto; } }
 
-    .hero { padding: 56px 0 40px; max-width: 760px; }
-    .eyebrow { display: inline-block; font-size: 12.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase;
-      color: #FDBA74; background: rgba(249,115,22,.12); border: 1px solid rgba(249,115,22,.35);
-      padding: 7px 14px; border-radius: 999px; margin-bottom: 22px; }
-    h1 { font-size: 46px; font-weight: 850; letter-spacing: -1.3px; line-height: 1.1; }
-    h1 .hl { background: linear-gradient(120deg, #FDBA74, var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .lead { font-size: 18px; color: var(--muted); margin-top: 20px; max-width: 640px; }
-    .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 30px; align-items: center; }
-    .btn { display: inline-block; font-size: 15px; font-weight: 700; padding: 13px 26px; border-radius: 12px; border: 1px solid transparent; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent2); }
-    .btn-ghost { background: transparent; color: var(--text); border-color: var(--border); }
-    .btn-ghost:hover { border-color: var(--accent); }
-    .soon-badge { color: var(--muted); font-size: 13px; }
-    @media (max-width: 600px) { h1 { font-size: 34px; } .lead { font-size: 16px; } }
+    /* Knöpfe */
+    .btn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 22px; border-radius: 12px;
+      font-weight: 600; font-size: 15.5px; background: var(--accent); color: var(--on-accent);
+      box-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 6px 20px -8px color-mix(in oklab, var(--accent) 70%, transparent);
+      transition: transform .15s, box-shadow .15s, background .15s; }
+    .btn:hover { text-decoration: none; transform: translateY(-1px);
+      box-shadow: 0 1px 0 rgba(255,255,255,.18) inset, 0 10px 26px -8px color-mix(in oklab, var(--accent) 80%, transparent); }
+    .btn.sm { height: 38px; padding: 0 16px; font-size: 14px; border-radius: 10px; }
+    .btn.ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--border); }
+    .btn.ghost:hover { background: var(--bg-soft); }
+    .btn .play { width: 14px; height: 14px; fill: currentColor; stroke: none; }
 
-    .ampel { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 38px; }
-    .amp { display: inline-flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 700; padding: 9px 16px; border-radius: 12px; }
-    .amp .dot { width: 11px; height: 11px; border-radius: 6px; }
-    .a-ok { background: rgba(22,163,74,.13); color: #4ADE80; } .a-ok .dot { background: var(--success); }
-    .a-warn { background: rgba(245,158,11,.13); color: #FCD34D; } .a-warn .dot { background: var(--warning); }
-    .a-due { background: rgba(239,68,68,.13); color: #FCA5A5; } .a-due .dot { background: var(--danger); }
+    /* Hero */
+    .hero { position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: -20% -10% auto 40%; height: 120%; z-index: -1; pointer-events: none;
+      background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 22%, transparent), transparent 75%); }
+    .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; padding-top: 56px; padding-bottom: 40px; }
+    .kicker { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--accent-text);
+      background: var(--accent-soft); padding: 6px 12px; border-radius: 999px; margin-bottom: 22px; }
+    h1 { font-size: clamp(34px, 4.6vw, 54px); line-height: 1.05; font-weight: 750; letter-spacing: -.035em; }
+    h1 em { font-style: normal; color: var(--accent-text); }
+    .sub { margin-top: 20px; font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 520px; }
+    .sub strong { color: var(--ink); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hint { margin-top: 12px; font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+    .hint .i { width: 15px; height: 15px; }
+    .ticks { display: flex; flex-wrap: wrap; gap: 10px 20px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--border); }
+    .ticks li { list-style: none; display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 500; }
+    .ticks .i { width: 17px; height: 17px; color: var(--accent-text); }
+    .shots { position: relative; height: 560px; }
+    .shots .phone { position: absolute; }
+    .shots .phone.a { left: 4%; top: 0; z-index: 2; }
+    .shots .phone.b { right: 0; top: 64px; transform: scale(.9); transform-origin: top right; opacity: .96; }
+    @media (max-width: 900px) {
+      .hero .wrap { grid-template-columns: 1fr; gap: 36px; padding-top: 36px; }
+      .shots { height: 380px; max-width: 420px; width: 100%; margin: 0 auto;
+        -webkit-mask-image: linear-gradient(#000 70%, transparent); mask-image: linear-gradient(#000 70%, transparent); }
+      .shots .phone { --pw: 210px; }
+      .shots .phone.a { left: 2%; } .shots .phone.b { top: 40px; }
+    }
 
-    section { padding: 48px 0; }
-    .sec-eyebrow { color: var(--accent); font-size: 13px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase; }
-    h2 { font-size: 29px; font-weight: 850; letter-spacing: -0.6px; margin-top: 8px; }
-    .sec-lead { color: var(--muted); font-size: 15.5px; margin-top: 10px; max-width: 620px; }
+    /* Handyrahmen */
+    .phone { --pw: 262px; width: var(--pw); padding: 8px; border-radius: calc(var(--pw) * .16);
+      background: linear-gradient(160deg, #2b2b31, #0e0e11 40%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.06) inset, 0 0 0 1px rgba(0,0,0,.5), 0 40px 70px -30px rgba(10,10,20,.55), 0 18px 30px -18px rgba(10,10,20,.35); }
+    .screen { position: relative; border-radius: calc(var(--pw) * .13); overflow: hidden; background: var(--bar); padding-top: calc(var(--pw) * .1); }
+    .screen::before { content: ''; position: absolute; top: calc(var(--pw) * .03); left: 50%; transform: translateX(-50%);
+      width: 30%; height: calc(var(--pw) * .075); border-radius: 99px; background: #000; }
+    .screen img { display: block; width: 100%; height: auto; }
 
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 30px; }
-    @media (max-width: 780px) { .grid { grid-template-columns: 1fr; } }
-    .feat { background: linear-gradient(180deg, var(--surface), var(--surface2)); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
-    .feat .fi { font-size: 24px; }
-    .feat h3 { font-size: 16.5px; font-weight: 750; margin: 12px 0 6px; }
-    .feat p { color: var(--muted); font-size: 14px; }
+    /* Abschnitte */
+    section { padding: 80px 0; }
+    section.soft { background: var(--bg-soft); }
+    @media (max-width: 700px) {
+      section { padding: 52px 0; }
+      .head { margin-bottom: 24px; }
+      .lead { font-size: 16px; }
+      .sub { font-size: 16.5px; }
+      .cta .btn { flex: 1 1 100%; justify-content: center; }
+      .ticks { gap: 8px 16px; }
+      .rules li { padding: 14px 16px; grid-template-columns: 32px 1fr; gap: 12px; font-size: 14.5px; }
+      .rules .ic { width: 32px; height: 32px; }
+    }
+    .eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .02em; color: var(--accent-text); margin-bottom: 10px; }
+    h2 { font-size: clamp(27px, 3.4vw, 38px); line-height: 1.12; font-weight: 720; letter-spacing: -.03em; max-width: 760px; }
+    .lead { margin-top: 14px; font-size: 17px; color: var(--muted); max-width: 620px; }
+    .lead strong { color: var(--ink); font-weight: 600; }
+    .head { margin-bottom: 40px; }
 
-    .duty { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 14px; padding: 20px 22px; margin-top: 16px; }
-    .duty h3 { font-size: 16px; font-weight: 750; }
-    .duty p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+    /* Pflicht */
+    .duty { display: grid; grid-template-columns: .9fr 1.1fr; gap: 56px; align-items: start; }
+    .rules { list-style: none; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .rules li { display: grid; grid-template-columns: 36px 1fr; gap: 14px; padding: 18px 22px; border-top: 1px solid var(--border); font-size: 15px; color: var(--muted); }
+    .rules li:first-child { border-top: 0; }
+    .rules b { display: block; color: var(--ink); font-weight: 600; font-size: 15.5px; margin-bottom: 1px; }
+    .ic { width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); }
+    @media (max-width: 860px) { .duty { grid-template-columns: 1fr; gap: 28px; } }
 
-    .plans { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 30px; }
-    @media (max-width: 680px) { .plans { grid-template-columns: 1fr; } }
-    .plan { background: linear-gradient(180deg, var(--surface), var(--surface2)); border: 1px solid var(--border); border-radius: 18px; padding: 26px; }
-    .plan.pro { border-color: rgba(249,115,22,.55); box-shadow: 0 18px 44px rgba(249,115,22,.10); }
-    .plan .pn { font-size: 14px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
-    .plan.pro .pn { color: var(--accent); }
-    .plan .pp { font-size: 32px; font-weight: 850; letter-spacing: -0.8px; margin-top: 8px; }
-    .plan .pp small { font-size: 14px; font-weight: 600; color: var(--muted); }
-    .plan .alt { color: var(--muted); font-size: 13.5px; margin-top: 2px; }
-    .plan ul { list-style: none; margin-top: 16px; }
-    .plan li { font-size: 14px; color: var(--text); padding: 6px 0; }
-    .plan li::before { content: "✓  "; color: var(--accent); font-weight: 800; }
-    .plan li.mu { color: var(--muted); } .plan li.mu::before { content: "—  "; color: var(--muted); }
-    .anchor { background: rgba(249,115,22,.08); border: 1px dashed rgba(249,115,22,.4); border-radius: 12px; padding: 13px 16px; margin-top: 22px; font-size: 14px; color: var(--muted); }
-    .anchor b { color: var(--text); }
+    /* Funktionen */
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .feature .ic { margin-bottom: 16px; }
+    .feature h3 { font-size: 16.5px; font-weight: 640; letter-spacing: -.01em; margin-bottom: 6px; }
+    .feature p { font-size: 15px; color: var(--muted); line-height: 1.55; }
+    @media (max-width: 900px) { .features { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .features { grid-template-columns: 1fr; gap: 10px; }
+      .feature { padding: 16px; display: grid; grid-template-columns: 36px 1fr; gap: 0 14px; }
+      .feature .ic { margin: 0; grid-row: span 2; } .feature p { font-size: 14.5px; } }
 
-    .band { background: linear-gradient(135deg, #3a2415, #171009); border: 1px solid rgba(249,115,22,.35);
-      border-radius: 20px; padding: 44px 30px; text-align: center; margin-top: 8px; }
-    .band h2 { margin-bottom: 10px; }
-    .band p { color: var(--muted); margin-bottom: 22px; }
+    /* Ablauf */
+    .flow { display: grid; grid-template-columns: 1fr auto; gap: 72px; align-items: center; }
+    .steps { list-style: none; counter-reset: s; margin-top: 32px; }
+    .steps li { counter-increment: s; position: relative; padding: 0 0 26px 56px; }
+    .steps li:last-child { padding-bottom: 0; }
+    .steps li::before { content: counter(s); position: absolute; left: 0; top: -2px; width: 36px; height: 36px; border-radius: 50%;
+      display: grid; place-items: center; font-weight: 650; font-size: 15px; background: var(--accent); color: var(--on-accent); }
+    .steps li:not(:last-child)::after { content: ''; position: absolute; left: 17.5px; top: 40px; bottom: 6px; width: 1px; background: var(--border); }
+    .steps b { display: block; font-size: 17px; font-weight: 640; margin-bottom: 4px; }
+    .steps p { color: var(--muted); font-size: 15.5px; }
+    .flow .phone { --pw: 280px; }
+    @media (max-width: 860px) { .flow { grid-template-columns: 1fr; } .flow > div:last-child { display: none; } .steps { margin-top: 24px; } }
 
-    /* Dexware Suite */
-    .suite { background: linear-gradient(180deg, rgba(249,115,22,.10), var(--surface2)); border: 2px solid rgba(249,115,22,.55);
-      border-radius: 22px; padding: 34px 30px; margin-top: 26px; box-shadow: 0 24px 60px rgba(249,115,22,.10); }
-    .suite-pill { display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
-      color: #fff; background: var(--accent); padding: 6px 14px; border-radius: 999px; }
-    .suite h2 { margin-top: 16px; }
-    .suite .sec-lead { max-width: 700px; }
-    .suite-prices { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-    @media (max-width: 680px) { .suite-prices { grid-template-columns: 1fr; } }
-    .sp { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px; position: relative; }
-    .sp.best { border-color: var(--accent); box-shadow: 0 12px 34px rgba(249,115,22,.14); }
-    .sp-badge { position: absolute; top: -12px; right: 16px; font-size: 11.5px; font-weight: 800;
-      color: #052e12; background: #4ADE80; padding: 4px 11px; border-radius: 999px; }
-    .sp-name { font-size: 13px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
-    .sp.best .sp-name { color: var(--accent); }
-    .sp-strike { color: var(--muted); font-size: 14px; text-decoration: line-through; margin-top: 10px; }
-    .sp-amount { font-size: 32px; font-weight: 850; letter-spacing: -0.8px; }
-    .sp-amount small { font-size: 14px; font-weight: 600; color: var(--muted); }
-    .sp-note { color: var(--muted); font-size: 13px; margin-top: 4px; }
-    .suite-icons { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px; }
-    .suite-icons img { width: 42px; height: 42px; border-radius: 11px; border: 1px solid var(--border); background: var(--surface); }
-    .suite ul { list-style: none; margin-top: 18px; }
-    .suite li { font-size: 14.5px; padding: 5px 0; }
-    .suite li::before { content: "★  "; color: var(--accent); }
-    .suite-how { color: var(--muted); font-size: 13.5px; margin-top: 18px; margin-bottom: 20px; }
+    /* Preise */
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }
+    .plan { position: relative; display: flex; flex-direction: column; min-width: 0; background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .plan.pro { border-color: color-mix(in oklab, var(--accent) 55%, var(--border)); box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 55%, transparent), var(--shadow); }
+    .plan .badge { position: absolute; top: -11px; left: 28px; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: var(--accent); color: var(--on-accent); }
+    .plan h3 { font-size: 15px; font-weight: 600; color: var(--muted); }
+    .price { margin-top: 10px; font-size: 38px; font-weight: 720; letter-spacing: -.03em; line-height: 1.1; }
+    .price small { font-size: 15px; font-weight: 500; color: var(--muted); letter-spacing: 0; }
+    .per { font-size: 14px; color: var(--muted); margin-top: 4px; min-height: 22px; }
+    .plan ul { list-style: none; margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--border); display: grid; gap: 10px; }
+    .plan li { display: flex; gap: 10px; font-size: 15px; }
+    .plan li .i { width: 18px; height: 18px; margin-top: 2px; color: var(--accent-text); }
+    .plan.suite { color: #f4f4f6; border: 1px solid transparent;
+      background: linear-gradient(180deg, #121218, #0b0b0f) padding-box, linear-gradient(140deg, #3b82f6, #8b5cf6 55%, var(--accent)) border-box; }
+    .plan.suite h3, .plan.suite .per, .plan.suite .price small { color: #a3a3ad; }
+    .plan.suite ul { border-color: rgba(255,255,255,.1); }
+    .plan.suite li .i { color: #f4f4f6; }
+    .icons { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 22px; }
+    .icons img { width: 26px; height: 26px; border-radius: 7px; }
+    .fine { margin-top: 20px; font-size: 13.5px; color: var(--muted); }
+    @media (max-width: 960px) { .plans { grid-template-columns: 1fr; max-width: 480px; } }
 
-    /* Cross-Promo: die Dexware-Familie */
-    .promo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 30px; }
-    @media (max-width: 680px) { .promo-grid { grid-template-columns: 1fr; } }
-    .promo { display: flex; align-items: center; gap: 14px; background: linear-gradient(180deg, var(--surface), var(--surface2));
-      border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px; transition: transform .18s ease, border-color .18s ease; }
-    .promo:hover { transform: translateY(-3px); border-color: var(--pc, var(--accent)); }
-    .promo img { width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0; }
-    .promo h3 { font-size: 15.5px; font-weight: 750; color: var(--pc, var(--text)); }
-    .promo p { color: var(--muted); font-size: 13px; line-height: 1.45; margin-top: 2px; }
-    .promo .go { margin-left: auto; color: var(--muted); font-weight: 800; }
-    .all-link { text-align: center; margin-top: 22px; }
-    .all-link a { color: var(--accent); font-weight: 700; font-size: 14px; }
+    /* FAQ */
+    .faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+    .faq details { border-bottom: 1px solid var(--border); }
+    .faq details:first-child { border-top: 1px solid var(--border); }
+    .faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: center;
+      padding: 18px 2px; font-weight: 600; font-size: 16px; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary .i { color: var(--muted); transition: transform .2s; }
+    .faq details[open] summary .i { transform: rotate(180deg); }
+    .faq .a { padding: 0 2px 20px; color: var(--muted); font-size: 15.5px; max-width: 640px; }
+    .ask { margin-top: 18px; color: var(--muted); font-size: 15px; display: flex; align-items: center; gap: 8px; }
+    @media (max-width: 860px) { .faq { grid-template-columns: 1fr; gap: 24px; } }
 
-    footer { border-top: 1px solid var(--border); margin-top: 36px; padding: 30px 0 52px; }
-    .foot { display: flex; justify-content: space-between; align-items: center; gap: 14px; flex-wrap: wrap; }
-    .foot .muted { color: var(--muted); font-size: 13px; }
-    .foot a { color: var(--muted); font-size: 13px; margin-left: 16px; }
-    .foot a:hover { color: var(--text); }
+    /* Familie */
+    .family { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-top: 32px; }
+    .family a { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 16px 6px 14px; border-radius: 14px;
+      color: var(--ink); text-align: center; transition: background .15s; }
+    .family a:hover { background: var(--surface); text-decoration: none; box-shadow: var(--shadow); }
+    .family img { width: 44px; height: 44px; border-radius: 11px; }
+    .family b { font-size: 13.5px; font-weight: 600; line-height: 1.2; }
+    .family small { font-size: 12px; color: var(--muted); line-height: 1.3; }
+    .family-row { display: flex; justify-content: space-between; align-items: end; gap: 24px; flex-wrap: wrap; }
+    @media (max-width: 900px) { .family { grid-template-columns: repeat(4, 1fr); } }
+    @media (max-width: 480px) { .family { grid-template-columns: repeat(4, 1fr); gap: 2px; margin-top: 20px; } .family a { padding: 10px 2px; gap: 6px; }
+      .family img { width: 40px; height: 40px; } .family b { font-size: 11.5px; } .family small { display: none; } }
+
+    /* Prüfpunkte (optional) */
+    .points { margin-top: 16px; padding: 22px 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--card); }
+    .points p { font-size: 15px; color: var(--muted); margin-bottom: 14px; }
+    .points p b { color: var(--ink); font-weight: 600; margin-right: 4px; }
+    .points ol { list-style: none; counter-reset: p; display: flex; flex-wrap: wrap; gap: 8px; }
+    .points li { counter-increment: p; display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500;
+      padding: 5px 12px 5px 5px; border-radius: 99px; background: var(--bg-soft); border: 1px solid var(--border); }
+    .points li::before { content: counter(p); width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+      font-size: 12px; font-weight: 650; background: var(--accent-soft); color: var(--accent-text); }
+    @media (max-width: 600px) { .points { padding: 16px; } .points li { font-size: 13px; } }
+
+    /* Fußzeile */
+    footer { border-top: 1px solid var(--border); padding: 32px 0 40px; font-size: 14px; color: var(--muted); }
+    footer .wrap { display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: center; justify-content: space-between; }
+    footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--ink); }
+
+    /* Handy: Feinschliff (muss nach den Grundregeln stehen) */
+    @media (max-width: 700px) {
+      .duty { gap: 22px; }
+      .plan { padding: 22px; }
+      .plan ul { margin-top: 16px; padding-top: 14px; gap: 7px; }
+      .price { font-size: 34px; }
+      .plans { gap: 20px; }
+      .faq summary { padding: 15px 2px; font-size: 15.5px; }
+      .rules li { padding: 13px 16px; }
+      .family-row .btn { order: 2; }
+    }
+
+    /* Einblenden beim Scrollen — nur mit JS und ohne reduzierte Bewegung */
+    .js .rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+    .js .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .js .rv { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
   </style>
+  <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <span class="logo">
-        <svg width="24" height="24" viewBox="0 0 100 100" aria-hidden="true">
-          <path d="M22 68 A 32 32 0 1 1 78 68" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-          <line x1="50" y1="62" x2="68" y2="40" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/>
-        </svg>
-      </span>
-      <span class="brand">Kfz<b>Dex</b></span>
-      <span class="nav-spacer"></span>
-      <nav>
-        <a href="#funktionen">Funktionen</a>
-        <a href="#pflichten">Pflichten</a>
-        <a href="#preise">Preise</a>
-        <a href="#suite">Suite</a>
-        <a href="ratgeber-uvv-fuhrpark.html">Ratgeber</a>
-        <a href="https://dexware.app/">Dexware</a>
-      </nav>
-    </header>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="KfzDex Startseite"><img src="assets/apps/kfzdex.webp" alt="" width="32" height="32" /><span class="wm">Kfz<span>Dex</span></span></a>
+      <nav aria-label="Seitennavigation"><a href="#funktionen">Funktionen</a><a href="#preise">Preise</a><a href="#faq">FAQ</a><a href="ratgeber-uvv-fuhrpark.html">Ratgeber</a></nav>
+      <a class="btn sm" href="https://play.google.com/store/apps/details?id=com.kfzdex.app" target="_blank" rel="noopener">App laden</a>
+    </div>
+  </header>
 
+  <main>
     <div class="hero">
-      <span class="eyebrow">Fuhrpark-Compliance für kleine Betriebe</span>
-      <h1>Dein Fuhrpark. <span class="hl">Alle Pflichten im Griff.</span></h1>
-      <p class="lead">
-        Jedes Firmenfahrzeug braucht jährlich eine UVV-Prüfung, jeder Fahrer regelmäßige
-        Führerscheinkontrollen. Ohne Nachweis haftest du persönlich. KfzDex macht daraus
-        eine Sache von Minuten — dokumentiert, erinnert, erledigt.
-      </p>
-      <p style="margin-top:14px;font-size:14px;opacity:.72">Speziell für den DACH-Raum — auf die Vorgaben in Deutschland, Österreich und der Schweiz ausgelegt (UVV / DGUV Vorschrift 70, Führerscheinkontrolle).</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.kfzdex.app" target="_blank" rel="noopener">Kostenlos bei Google Play</a>
-        <span class="soon-badge">Jetzt im Google Play Store — kostenlos starten</span>
-      </div>
-      <div class="ampel">
-        <span class="amp a-ok"><span class="dot"></span>UVV gültig bis 02.03.2027</span>
-        <span class="amp a-warn"><span class="dot"></span>Kontrolle fällig in 12 Tagen</span>
-        <span class="amp a-due"><span class="dot"></span>UVV 14 Tage überfällig</span>
+      <div class="wrap">
+        <div>
+          <span class="kicker">DGUV Vorschrift 70 · § 21 StVG</span>
+          <h1>Dein Fuhrpark. <em>Alle Pflichten im Griff.</em></h1>
+          <p class="sub">Jedes Firmenfahrzeug braucht jährlich die UVV-Prüfung, jeder Fahrer regelmäßige Führerscheinkontrollen. KfzDex macht daraus <strong>eine Sache von Minuten — dokumentiert, erinnert, erledigt</strong>.</p>
+          <div class="cta">
+            <a class="btn" id="store-link" href="https://play.google.com/store/apps/details?id=com.kfzdex.app" target="_blank" rel="noopener"><svg class="play" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 6 3.5z"/></svg>Kostenlos bei Google Play</a>
+            <a class="btn ghost" href="#ablauf">So funktioniert's</a>
+          </div>
+          <p class="hint"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg>Android jetzt · iPhone & iPad bald</p>
+          <ul class="ticks"><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Fristen-Ampel</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>PDF-Nachweise</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Ein Preis für den ganzen Betrieb</li></ul>
+        </div>
+        <div class="shots" aria-label="Screenshots der App">
+          <div class="phone a"><div class="screen" style="--bar:#0c1017"><img src="assets/shots/hero-1.webp" width="600" height="1022" alt="KfzDex: Übersicht mit Fahrzeugen, Fahrern und anstehenden Fristen" decoding="async"></div></div>
+          <div class="phone b"><div class="screen" style="--bar:#0c1017"><img src="assets/shots/hero-2.webp" width="600" height="1022" alt="KfzDex: UVV-Prüfung nach DGUV Vorschrift 70" decoding="async"></div></div>
+        </div>
       </div>
     </div>
 
-    <section id="funktionen">
-      <div class="sec-eyebrow">Funktionen</div>
-      <h2>Von der Frist bis zum prüffesten Nachweis</h2>
-      <p class="sec-lead">Fahrzeuge und Fahrer einmal anlegen — ab dann überwacht KfzDex jede Frist automatisch.</p>
-      <div class="grid">
-        <div class="feat"><div class="fi">🚦</div><h3>Fristen-Ampel</h3><p>Das Dashboard zeigt auf einen Blick, was überfällig ist, was bald fällig wird und was erledigt ist — sortiert nach Dringlichkeit.</p></div>
-        <div class="feat"><div class="fi">✅</div><h3>UVV-Prüfung in 2 Minuten</h3><p>Geführte 10-Punkte-Checkliste nach DGUV Vorschrift 70: Bremsen, Beleuchtung, Reifen, Lenkung und mehr. Die 12-Monats-Frist startet automatisch neu.</p></div>
-        <div class="feat"><div class="fi">🪪</div><h3>Führerscheinkontrolle</h3><p>Geführte Sichtprüfung nach §21 StVG mit optionalem Foto-Nachweis (bleibt lokal auf dem Gerät). Intervall pro Fahrer wählbar: 3, 6 oder 12 Monate.</p></div>
-        <div class="feat"><div class="fi">📄</div><h3>Prüffeste PDF-Nachweise</h3><p>Jede Prüfung landet in der Historie und lässt sich als PDF-Protokoll exportieren — mit Checkliste, Mängeln und Unterschriftszeilen.</p></div>
-        <div class="feat"><div class="fi">🔔</div><h3>Erinnerungen</h3><p>Lokale Benachrichtigungen am Fälligkeitstag — keine Frist rutscht mehr durch.</p></div>
-        <div class="feat"><div class="fi">👷</div><h3>Team-Zugang</h3><p>Einladungscode teilen, und der ganze Betrieb arbeitet mit demselben Fuhrpark. Der Meister prüft, das Büro exportiert die Nachweise.</p></div>
+    <section class="soft" id="pflicht">
+      <div class="wrap duty">
+        <div class="rv">
+          <p class="eyebrow">Pflichten</p>
+          <h2>Zwei Pflichten, die jeder Betrieb mit Fahrzeugen hat</h2>
+          <p class="lead">Ohne Nachweis haftest du persönlich — spätestens nach einem Unfall fragen Berufsgenossenschaft, Polizei und Versicherung danach. KfzDex unterstützt bei Organisation und Dokumentation, die Verantwortung bleibt beim Halter.</p>
+        </div>
+        <ul class="rules rv">
+          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg></span><span><b>UVV-Prüfung, jährlich</b>Jedes betrieblich genutzte Fahrzeug — vom Transporter bis zum Anhänger — durch eine befähigte Person (DGUV Vorschrift 70).</span></li>
+          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10h2" /><path d="M16 14h2" /><path d="M6.17 15a3 3 0 0 1 5.66 0" /><circle cx="9" cy="11" r="2" /><rect x="2" y="5" width="20" height="14" rx="2" /></svg></span><span><b>Führerscheinkontrolle, regelmäßig</b>Wer Fahrzeuge überlässt, muss die Fahrerlaubnis jedes Fahrers prüfen (§ 21 StVG).</span></li>
+          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg></span><span><b>Ohne Kontrolle</b>Drohen Geld- oder Freiheitsstrafe wegen Zulassens des Fahrens ohne Fahrerlaubnis.</span></li>
+          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></svg></span><span><b>Nachweis</b>Datum, Prüfer, Checkliste und Ergebnis — jederzeit als PDF vorzeigbar.</span></li>
+        </ul>
       </div>
     </section>
 
-    <section id="pflichten">
-      <div class="sec-eyebrow">Warum das wichtig ist</div>
-      <h2>Zwei Pflichten, die jeder Betrieb mit Fahrzeugen hat</h2>
-      <div class="duty">
-        <h3>UVV-Fahrzeugprüfung — jährlich (DGUV Vorschrift 70)</h3>
-        <p>Jedes betrieblich genutzte Fahrzeug muss mindestens einmal jährlich durch eine befähigte Person auf arbeitssicheren Zustand geprüft werden — vom Transporter bis zum Anhänger. Die Berufsgenossenschaft verlangt den Nachweis, spätestens nach einem Unfall.</p>
+    <section id="funktionen">
+      <div class="wrap">
+        <div class="head rv">
+          <p class="eyebrow">Funktionen</p>
+          <h2>Von der Frist bis zum prüffesten Nachweis</h2>
+          <p class="lead">Fahrzeuge und Fahrer einmal anlegen — ab dann überwacht KfzDex jede Frist automatisch.</p>
+        </div>
+        <div class="features">
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4" /><path d="M3.34 19a10 10 0 1 1 17.32 0" /></svg></span><h3>Fristen-Ampel</h3><p>Überfällig, bald fällig oder erledigt — das Dashboard sortiert alles nach Dringlichkeit.</p></article>
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 17 2 2 4-4" /><path d="m3 7 2 2 4-4" /><path d="M13 6h8" /><path d="M13 12h8" /><path d="M13 18h8" /></svg></span><h3>UVV-Prüfung in 2 Minuten</h3><p>10-Punkte-Checkliste nach DGUV Vorschrift 70: Bremsen, Beleuchtung, Reifen, Lenkung und mehr.</p></article>
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10h2" /><path d="M16 14h2" /><path d="M6.17 15a3 3 0 0 1 5.66 0" /><circle cx="9" cy="11" r="2" /><rect x="2" y="5" width="20" height="14" rx="2" /></svg></span><h3>Führerscheinkontrolle</h3><p>Geführte Sichtprüfung mit optionalem Foto, das nur auf dem Gerät bleibt. Intervall je Fahrer: 3, 6 oder 12 Monate.</p></article>
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" /><path d="M14 2v4a2 2 0 0 0 2 2h4" /><path d="M10 9H8" /><path d="M16 13H8" /><path d="M16 17H8" /></svg></span><h3>Prüffeste PDF-Nachweise</h3><p>Jede Prüfung in der Historie und als PDF-Protokoll mit Checkliste, Mängeln und Unterschriftszeilen.</p></article>
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" /><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /></svg></span><h3>Erinnerungen</h3><p>Benachrichtigung am Fälligkeitstag — keine Frist rutscht mehr durch.</p></article>
+          <article class="feature rv"><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M22 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg></span><h3>Team-Zugang</h3><p>Einladungscode teilen: Der Meister prüft, das Büro exportiert die Nachweise.</p></article>
+        </div>
       </div>
-      <div class="duty">
-        <h3>Führerscheinkontrolle — regelmäßig (§21 StVG, Halterhaftung)</h3>
-        <p>Wer als Unternehmer Fahrzeuge überlässt, muss regelmäßig kontrollieren, dass jeder Fahrer eine gültige Fahrerlaubnis besitzt. Ohne dokumentierte Kontrolle drohen im Ernstfall Geldstrafe oder Freiheitsstrafe wegen Zulassens des Fahrens ohne Fahrerlaubnis.</p>
-      </div>
-      <div class="duty">
-        <h3>KfzDex dokumentiert — du bleibst verantwortlich</h3>
-        <p>KfzDex unterstützt bei Organisation und Dokumentation, ersetzt aber keine Rechtsberatung. Verantwortlich für die Einhaltung der Pflichten bleibt der Halter bzw. Unternehmer.</p>
+    </section>
+
+    <section class="soft" id="ablauf">
+      <div class="wrap flow">
+        <div class="rv">
+          <p class="eyebrow">So funktioniert's</p>
+          <h2>In drei Schritten alles im Griff</h2>
+          <ol class="steps">
+            <li><b>Fahrzeuge und Fahrer anlegen</b><p>Kennzeichen, Typ und Fahrerlaubnis-Klassen — einmal erfasst, ab dann laufen die Fristen.</p></li>
+            <li><b>Prüfen, wenn es fällig ist</b><p>UVV-Checkliste durchgehen oder Führerschein sichten und bestätigen — in unter einer Minute.</p></li>
+            <li><b>Nachweis vorzeigen</b><p>Protokoll als PDF an Berufsgenossenschaft, Polizei oder Versicherung.</p></li>
+          </ol>
+        </div>
+        <div class="rv"><div class="phone lazy"><div class="screen" style="--bar:#0c1017"><img src="assets/shots/ablauf.webp" width="600" height="1022" alt="KfzDex: Führerscheinkontrolle nach § 21 StVG" decoding="async" loading="lazy"></div></div></div>
       </div>
     </section>
 
     <section id="preise">
-      <div class="sec-eyebrow">Preise</div>
-      <h2>Ein Preis für den ganzen Betrieb</h2>
-      <p class="sec-lead">Egal ob 3 oder 30 Fahrzeuge — bei KfzDex zahlst du nie pro Fahrzeug.</p>
-      <div class="plans">
-        <div class="plan">
-          <div class="pn">Free</div>
-          <div class="pp">0 € <small>für immer</small></div>
-          <div class="alt">Zum Ausprobieren und für Kleinstbetriebe</div>
-          <ul>
-            <li>2 Fahrzeuge, 3 Fahrer</li>
-            <li>UVV-Checkliste &amp; Führerscheinkontrolle</li>
-            <li>Fristen-Ampel &amp; Erinnerungen</li>
-            <li>PDF-Nachweise &amp; Historie</li>
-            <li class="mu">Unbegrenzte Fahrzeuge &amp; Fahrer</li>
-          </ul>
+      <div class="wrap">
+        <div class="head rv">
+          <p class="eyebrow">Preise</p>
+          <h2>Kostenlos starten, bei Bedarf upgraden.</h2>
         </div>
-        <div class="plan pro">
-          <div class="pn">Pro</div>
-          <div class="pp">9,99 € <small>/ Monat</small></div>
-          <div class="alt">oder 79,99 € / Jahr — rund 33 % gespart</div>
-          <ul>
-            <li>Unbegrenzt Fahrzeuge &amp; Fahrer</li>
-            <li>Alles aus Free</li>
-            <li>Team-Zugang für den ganzen Betrieb</li>
-            <li>Ein Preis — egal wie groß dein Fuhrpark ist</li>
-          </ul>
-        </div>
-      </div>
-      <div class="anchor">
-        <b>Zum Vergleich:</b> Große Fuhrpark-Anbieter kassieren 10–20 € <b>pro Fahrzeug</b> und Monat.
-        Bei 10 Fahrzeugen sind das über 100 € monatlich — KfzDex kostet einen Bruchteil davon, für den ganzen Betrieb.
-      </div>
-
-      <!-- Web-Dashboard -->
-      <div class="suite" id="dashboard">
-        <span class="suite-pill">💻 Neu: Web-Dashboard — inklusive</span>
-        <h2>KfzDex auch am PC.</h2>
-        <p style="margin:10px 0 16px;opacity:.85">Fahrzeuge, Fahrer und alle UVV- und Kontroll-Fristen mit Ampel auf einen Blick — direkt im Browser. Anmeldung mit deinem App-Konto — per Google oder E-Mail + Passwort.</p>
-        <a class="btn btn-primary" href="https://dashboard.dexware.app/app/kfzdex">Dashboard öffnen →</a>
-      </div>
-
-      <!-- Dexware Suite Bundle -->
-      <div class="suite" id="suite">
-        <span class="suite-pill">Dexware Suite — ein Abo, alle Apps</span>
-        <h2>Alle 9 Dexware-Apps. <span class="hl">Ein Abo.</span></h2>
-        <p class="sec-lead">
-          Die Suite kostet so viel wie unsere teuerste Einzel-App — und schaltet <b>alle</b> Dexware-Apps
-          auf allen deinen Geräten frei. Neue Apps kommen automatisch dazu, ohne Aufpreis.
-        </p>
-        <div class="suite-prices">
-          <div class="sp">
-            <div class="sp-name">Monatlich</div>
-            <div class="sp-strike">über 90 € — alle Apps einzeln</div>
-            <div class="sp-amount">29,99 € <small>/ Monat</small></div>
-            <div class="sp-note">Der Preis unserer teuersten Einzel-App — über 65 % günstiger als alles einzeln.</div>
+        <div class="plans">
+          <div class="plan rv">
+            <h3>Free</h3>
+            <p class="price">0 €</p>
+            <p class="per">zum Ausprobieren und für Kleinstbetriebe</p>
+            <ul><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>2 Fahrzeuge, 3 Fahrer</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>UVV-Checkliste & Führerscheinkontrolle</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Fristen-Ampel & Erinnerungen</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>PDF-Nachweise & Historie</li></ul>
           </div>
-          <div class="sp best">
-            <span class="sp-badge">4 Monate geschenkt · −33 %</span>
-            <div class="sp-name">Jährlich</div>
-            <div class="sp-strike">statt 359,88 € (12 × 29,99 €)</div>
-            <div class="sp-amount">239,99 € <small>/ Jahr</small></div>
-            <div class="sp-note">Entspricht 20,00 € im Monat — du zahlst nur 8 von 12 Monaten.</div>
+          <div class="plan pro rv">
+            <span class="badge">Empfohlen</span>
+            <h3>KfzDex Pro</h3>
+            <p class="price">9,99 € <small>/ Monat</small></p>
+            <p class="per">oder 79,99 € im Jahr</p>
+            <ul><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Unbegrenzt Fahrzeuge & Fahrer</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Team-Zugang für den ganzen Betrieb</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Alles aus Free</li><li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Ein Preis — egal wie groß der Fuhrpark</li></ul>
+          </div>
+          <div class="plan suite rv">
+            <h3>Dexware Suite</h3>
+            <p class="price">29,99 € <small>/ Monat</small></p>
+            <p class="per">oder 239,99 € im Jahr · entspricht 20 € im Monat</p>
+            <ul>
+              <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Alle 15 Dexware-Apps freigeschaltet</li>
+              <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Neue Apps automatisch dabei</li>
+              <li><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>Ein Abo für alle Geräte</li>
+            </ul>
+            <div class="icons" aria-hidden="true"><img src="assets/apps/gurtdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/toredex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/geruestdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/feuerdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/leiterdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/regaldex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/spieldex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/winterdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/kfzdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/pruefdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/schutzdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/baumdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/tourdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/craftdex.webp" alt="" width="26" height="26" loading="lazy" /><img src="assets/apps/dokudex.webp" alt="" width="26" height="26" loading="lazy" /></div>
           </div>
         </div>
-        <div class="suite-icons">
-          <img src="gurtdex-icon.png" alt="GurtDex" title="GurtDex" />
-          <img src="toredex-icon.png" alt="ToreDex" title="ToreDex" />
-          <img src="geruestdex-icon.png" alt="GerüstDex" title="GerüstDex" />
-          <img src="kfzdex-icon.png" alt="KfzDex" title="KfzDex" />
-          <img src="regaldex-icon.png" alt="RegalDex" title="RegalDex" />
-          <img src="leiterdex-icon.png" alt="LeiterDex" title="LeiterDex" />
-          <img src="feuerdex-icon.png" alt="FeuerDex" title="FeuerDex" />
-          <img src="spieldex-icon.png" alt="SpielDex" title="SpielDex" />
-          <img src="pruefdex-icon.png" alt="PrüfDex" title="PrüfDex" />
-          <img src="schutzdex-icon.png" alt="SchutzDex" title="SchutzDex" />
-          <img src="baumdex-icon.png" alt="BaumDex" title="BaumDex" />
-          <img src="winterdex-icon.png" alt="WinterDex" title="WinterDex" />
-          <img src="routelog-icon.png" alt="TourDex" title="TourDex" />
-          <img src="craftlog-icon.png" alt="CraftDex" title="CraftDex" />
-          <img src="archio-icon.png" alt="DokuDex" title="DokuDex" />
+        <p class="fine">Abschluss direkt in der App über Google Play · jederzeit kündbar · Preise inkl. MwSt.</p>
+      </div>
+    </section>
+
+    <section class="soft" id="faq">
+      <div class="wrap faq">
+        <div class="rv">
+          <p class="eyebrow">FAQ</p>
+          <h2>Häufige Fragen</h2>
+          <p class="ask"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg><span>Noch etwas offen? <a href="mailto:support@dexware.app?subject=KfzDex">support@dexware.app</a></span></p>
         </div>
-        <ul>
-          <li>Alle 15 Apps inklusive — von UVV bis Winterdienst</li>
-          <li>Alle zukünftigen Dexware-Apps automatisch dabei</li>
-          <li>Einmal kaufen — in jeder App freigeschaltet</li>
-          <li>Jederzeit kündbar</li>
-        </ul>
-        <p class="suite-how">Erhältlich direkt in jeder Dexware-App: einfach in der App auf „Pro werden" tippen und die Dexware Suite wählen.</p>
-        <a class="btn btn-primary" href="https://dexware.app/" target="_blank" rel="noopener">Mehr zur Dexware Suite →</a>
-        <p class="suite-how">💻 Fürs Web gibt's einen Haupteinstieg: <a href="https://dashboard.dexware.app">dashboard.dexware.app</a> — die Übersicht aller App-Dashboards. Dort wählst du einfach die App, deren Dashboard du öffnen willst.</p>
+        <div class="rv">
+          <details><summary>Zahle ich pro Fahrzeug?<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary><div class="a">Nein. Pro kostet einen festen Preis für den ganzen Betrieb — egal ob 3 oder 30 Fahrzeuge. Große Fuhrpark-Anbieter rechnen dagegen oft 10 bis 20 € pro Fahrzeug und Monat ab.</div></details>
+          <details><summary>Wie oft muss der Führerschein kontrolliert werden?<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary><div class="a">Das Gesetz nennt keine feste Frist; üblich ist eine Kontrolle bei Fahrzeugüberlassung und danach zweimal jährlich. In KfzDex wählst du je Fahrer 3, 6 oder 12 Monate. Mehr im <a href="ratgeber-fuehrerscheinkontrolle.html">Ratgeber Führerscheinkontrolle</a>.</div></details>
+          <details><summary>Wer darf die UVV-Prüfung durchführen?<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary><div class="a">Ein Sachkundiger bzw. eine befähigte Person — typischerweise Kfz-Meister, Kfz-Techniker oder eine Fachwerkstatt. KfzDex führt durch die Checkliste und dokumentiert das Ergebnis. Mehr im <a href="ratgeber-uvv-fuhrpark.html">Ratgeber UVV-Prüfung</a>.</div></details>
+          <details><summary>Gibt es KfzDex auch am PC?<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary><div class="a">Ja — im <a href="https://dashboard.dexware.app/app/kfzdex">Dexware-Dashboard</a> siehst du Fahrzeuge, Fahrer und alle Fristen mit Ampel im Browser.</div></details>
+          <details><summary>Wo liegen meine Daten?<svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg></summary><div class="a">In einem Rechenzentrum in der EU-Region. Fotos vom Führerschein bleiben auf deinem Gerät. Details in der <a href="datenschutz.html">Datenschutzerklärung</a>.</div></details>
+        </div>
       </div>
     </section>
 
-    <section>
-      <div class="band">
-        <h2>Jetzt im Google Play Store</h2>
-        <p>KfzDex ist Teil der Dexware-Suite — Software fürs Handwerk, Compliance aus einer Hand.</p>
-        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.kfzdex.app" target="_blank" rel="noopener">Kostenlos bei Google Play</a>
+    <section id="dexware">
+      <div class="wrap">
+        <div class="family-row rv">
+          <div>
+            <p class="eyebrow">Teil von Dexware</p>
+            <h2>Eine App pro Pflicht.</h2>
+            <p class="lead">KfzDex gehört zu Dexware — schlanke Apps für Prüfung und Dokumentation im Betrieb.</p>
+          </div>
+          <a href="https://dexware.app/" class="btn ghost sm">Alle Apps ansehen <svg class="i sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+        </div>
+        <div class="family rv">
+          <a href="https://gurtdex.dexware.app"><img src="assets/apps/gurtdex.webp" alt="" width="44" height="44" loading="lazy" /><b>GurtDex</b><small>PSA gegen Absturz</small></a>
+          <a href="https://toredex.dexware.app"><img src="assets/apps/toredex.webp" alt="" width="44" height="44" loading="lazy" /><b>ToreDex</b><small>Tore & Türen</small></a>
+          <a href="https://geruestdex.dexware.app"><img src="assets/apps/geruestdex.webp" alt="" width="44" height="44" loading="lazy" /><b>GerüstDex</b><small>Gerüstprüfung</small></a>
+          <a href="https://feuerdex.dexware.app"><img src="assets/apps/feuerdex.webp" alt="" width="44" height="44" loading="lazy" /><b>FeuerDex</b><small>Feuerlöscher</small></a>
+          <a href="https://leiterdex.dexware.app"><img src="assets/apps/leiterdex.webp" alt="" width="44" height="44" loading="lazy" /><b>LeiterDex</b><small>Leitern & Tritte</small></a>
+          <a href="https://regaldex.dexware.app"><img src="assets/apps/regaldex.webp" alt="" width="44" height="44" loading="lazy" /><b>RegalDex</b><small>Regalinspektion</small></a>
+          <a href="https://spieldex.dexware.app"><img src="assets/apps/spieldex.webp" alt="" width="44" height="44" loading="lazy" /><b>SpielDex</b><small>Spielplatzkontrolle</small></a>
+          <a href="https://winterdex.dexware.app"><img src="assets/apps/winterdex.webp" alt="" width="44" height="44" loading="lazy" /><b>WinterDex</b><small>Winterdienst</small></a>
+          <a href="https://pruefdex.dexware.app"><img src="assets/apps/pruefdex.webp" alt="" width="44" height="44" loading="lazy" /><b>PrüfDex</b><small>DGUV V3</small></a>
+          <a href="https://schutzdex.dexware.app"><img src="assets/apps/schutzdex.webp" alt="" width="44" height="44" loading="lazy" /><b>SchutzDex</b><small>Unterweisungen</small></a>
+          <a href="https://baumdex.dexware.app"><img src="assets/apps/baumdex.webp" alt="" width="44" height="44" loading="lazy" /><b>BaumDex</b><small>Baumkataster</small></a>
+          <a href="https://tourdex.dexware.app"><img src="assets/apps/tourdex.webp" alt="" width="44" height="44" loading="lazy" /><b>TourDex</b><small>Fahrtenbuch</small></a>
+          <a href="https://craftdex.dexware.app"><img src="assets/apps/craftdex.webp" alt="" width="44" height="44" loading="lazy" /><b>CraftDex</b><small>Projekt-Doku</small></a>
+          <a href="https://dokudex.dexware.app"><img src="assets/apps/dokudex.webp" alt="" width="44" height="44" loading="lazy" /><b>DokuDex</b><small>Dokumente & KI</small></a>
+        </div>
       </div>
     </section>
+  </main>
 
-    <section id="mehr">
-      <div class="sec-eyebrow">Die Dexware-Familie</div>
-      <h2>Mehr von Dexware</h2>
-      <p class="sec-lead">KfzDex ist eine von zwölf Apps — jede löst genau eine Pflicht. Zusammen in der Dexware Suite am stärksten.</p>
-        <a class="promo reveal" href="https://gurtdex.dexware.app" target="_blank" rel="noopener">
-          <img src="gurtdex-icon.png" alt="GurtDex" width="48" height="48" />
-          <span><b>GurtDex</b><span>PSA gegen Absturz prüfen nach DGUV 312-906 / EN 365 — mit Ablegereife-Wächter, Prüfbericht als PDF.</span></span></a>
-        <a class="promo reveal" href="https://toredex.dexware.app" target="_blank" rel="noopener">
-          <img src="toredex-icon.png" alt="ToreDex" width="48" height="48" />
-          <span><b>ToreDex</b><span>Kraftbetätigte Tore &amp; Türen prüfen nach ASR A1.7 / DGUV 208-022.</span></span></a>
-      <div class="promo-grid">        <a class="promo" style="--pc:#14B8A6" href="https://geruestdex.dexware.app" target="_blank" rel="noopener">
-          <img src="geruestdex-icon.png" alt="GerüstDex" />
-          <span><h3>GerüstDex</h3><p>Gerüstprüfung nach TRBS 2121-1 — Ampelverfahren &amp; Prüfbericht als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
+  <footer>
+    <div class="wrap">
+      <span>© 2026 KfzDex · ein Produkt von <a href="https://dexware.app/">Dexware</a></span>
+      <nav aria-label="Rechtliches"><a href="ratgeber-uvv-fuhrpark.html">Ratgeber UVV</a><a href="ratgeber-fuehrerscheinkontrolle.html">Ratgeber Führerscheinkontrolle</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a><a href="konto-loeschen.html">Konto löschen</a><a href="mailto:support@dexware.app?subject=KfzDex%20Support">Support</a></nav>
+    </div>
+  </footer>
 
-        <a class="promo" style="--pc:#F59E0B" href="https://regaldex.dexware.app" target="_blank" rel="noopener">
-          <img src="regaldex-icon.png" alt="RegalDex" />
-          <span><h3>RegalDex</h3><p>Regalinspektion nach DIN EN 15635 — Ampelverfahren &amp; Prüfbericht als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#2563EB" href="https://leiterdex.dexware.app" target="_blank" rel="noopener">
-          <img src="leiterdex-icon.png" alt="LeiterDex" />
-          <span><h3>LeiterDex</h3><p>Leitern- &amp; Tritte-Prüfung nach BetrSichV &amp; DGUV 208-016 — Prüfbericht als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#B91C1C" href="https://feuerdex.dexware.app" target="_blank" rel="noopener">
-          <img src="feuerdex-icon.png" alt="FeuerDex" />
-          <span><h3>FeuerDex</h3><p>Feuerlöscher-Prüfung nach ASR A2.2 &amp; DIN 14406-4 — Prüfbericht als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#14B8A6" href="https://spieldex.dexware.app" target="_blank" rel="noopener">
-          <img src="spieldex-icon.png" alt="SpielDex" />
-          <span><h3>SpielDex</h3><p>Spielplatzkontrolle nach DIN EN 1176 — Geräte prüfen, Mängel dokumentieren, Kontrollbuch als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#2563EB" href="https://pruefdex.dexware.app" target="_blank" rel="noopener">
-          <img src="pruefdex-icon.png" alt="PrüfDex" />
-          <span><h3>PrüfDex</h3><p>DGUV-V3-Prüfung elektrischer Betriebsmittel — QR, Protokoll, Plakette.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#5B8DF7" href="https://schutzdex.dexware.app" target="_blank" rel="noopener">
-          <img src="schutzdex-icon.png" alt="SchutzDex" />
-          <span><h3>SchutzDex</h3><p>KI-Unterweisung &amp; Gefährdungsbeurteilung — prüffest dokumentiert.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#4ADE80" href="https://play.google.com/store/apps/details?id=com.baumdex.app" target="_blank" rel="noopener">
-          <img src="baumdex-icon.png" alt="BaumDex" />
-          <span><h3>BaumDex</h3><p>Baumkataster &amp; Verkehrssicherung — Kontrollen rechtssicher dokumentieren.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#38BDF8" href="https://winterdex.dexware.app" target="_blank" rel="noopener">
-          <img src="winterdex-icon.png" alt="WinterDex" />
-          <span><h3>WinterDex</h3><p>Winterdienst-Nachweis — Räum- &amp; Streueinsätze gerichtsfest dokumentieren.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#60A5FA" href="https://play.google.com/store/apps/details?id=com.routelog.app" target="_blank" rel="noopener">
-          <img src="routelog-icon.png" alt="TourDex" />
-          <span><h3>TourDex</h3><p>Automatisches Fahrtenbuch — Fahrten per GPS erkennen, steuerfertig als PDF.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#E8C97A" href="https://play.google.com/store/apps/details?id=com.craftlog.app" target="_blank" rel="noopener">
-          <img src="craftlog-icon.png" alt="CraftDex" />
-          <span><h3>CraftDex</h3><p>Projekt-Tagebuch fürs Handwerk — Schritte, Material und Stunden im Blick.</p></span>
-          <span class="go">→</span>
-        </a>
-        <a class="promo" style="--pc:#4F9EF8" href="https://play.google.com/store/apps/details?id=com.archio.app" target="_blank" rel="noopener">
-          <img src="archio-icon.png" alt="DokuDex" />
-          <span><h3>DokuDex</h3><p>Dokumente scannen &amp; per KI verstehen — Belege, Verträge und mehr.</p></span>
-          <span class="go">→</span>
-        </a>
-      </div>
-      <p class="all-link"><a href="https://dexware.app/" target="_blank" rel="noopener">Alle Dexware-Apps auf einen Blick →</a></p>
-    </section>
-
-    <footer>
-      <div class="foot">
-        <span class="muted">© 2026 Dexware · KfzDex</span>
-        <span>
-          <a href="ratgeber-uvv-fuhrpark.html">Ratgeber</a>
-          <a href="https://dexware.app/">Dexware-Suite</a>
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
-          <a href="konto-loeschen.html">Konto löschen</a>
-        </span>
-      </div>
-    </footer>
-  </div>
+  <script>
+    (function () {
+      var top = document.querySelector('.top');
+      var onScroll = function () { top.classList.toggle('scrolled', window.scrollY > 8); };
+      onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+      var els = document.querySelectorAll('.rv');
+      if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        els.forEach(function (e) { e.classList.add('in'); }); return;
+      }
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      els.forEach(function (e) { io.observe(e); });
+    })();
+  </script>
 </body>
 </html>
