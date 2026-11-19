@@ -458,9 +458,14 @@
     @media (max-width: 400px) {
       .ios-tab { display: flex; }
       .ipw-visual { height: 420px; }
-      .ipw.tall .ipw-visual { height: 470px; }
+      .ipw.tall .ipw-visual { height: 484px; }
       .ipw-visual .phone.a { --pw: 186px; } .ipw-visual .phone.b { --pw: 160px; }
       .ipw-home { left: 12%; }
+    }
+    /* Schmale Handys (360 px): beide Bildschirme nebeneinander, ohne dass der vordere den hinteren verdeckt. */
+    @media (max-width: 374px) {
+      .ipw.tall .ipw-visual { height: 462px; }
+      .ipw-visual .phone.a { --pw: 172px; } .ipw-visual .phone.b { --pw: 150px; }
     }
   </style>
   <script>document.documentElement.classList.add('js')</script>
@@ -505,7 +510,7 @@
           <p class="lead">Ohne Nachweis haftest du persönlich. Spätestens nach einem Unfall fragen Berufsgenossenschaft, Polizei und Versicherung danach. KfzDex hilft bei Organisation und Dokumentation, die Verantwortung bleibt beim Halter.</p>
         </div>
         <ul class="rules rv">
-          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg></span><span><b>UVV-Prüfung, jährlich</b>Jedes betrieblich genutzte Fahrzeug, vom Transporter bis zum Anhänger, durch eine befähigte Person (DGUV Vorschrift 70).</span></li>
+          <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2" /><path d="M15 18H9" /><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14" /><circle cx="17" cy="18" r="2" /><circle cx="7" cy="18" r="2" /></svg></span><span><b>UVV-Prüfung, jährlich</b>Jedes betrieblich genutzte Fahrzeug, vom Transporter bis zum Anhänger, durch einen Sachkundigen (§&nbsp;57 DGUV Vorschrift 70).</span></li>
           <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 10h2" /><path d="M16 14h2" /><path d="M6.17 15a3 3 0 0 1 5.66 0" /><circle cx="9" cy="11" r="2" /><rect x="2" y="5" width="20" height="14" rx="2" /></svg></span><span><b>Führerscheinkontrolle, regelmäßig</b>Wer Fahrzeuge überlässt, muss die Fahrerlaubnis jedes Fahrers prüfen (§&nbsp;21 StVG).</span></li>
           <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" /><path d="M7 21h10" /><path d="M12 3v18" /><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" /></svg></span><span><b>Ohne Kontrolle</b>Drohen Geld- oder Freiheitsstrafe wegen Zulassens des Fahrens ohne Fahrerlaubnis.</span></li>
           <li><span class="ic"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z" /><path d="m9 13 2 2 4-4" /></svg></span><span><b>Nachweis</b>Datum, Prüfer, Checkliste und Ergebnis, jederzeit als PDF vorzeigbar.</span></li>
@@ -537,12 +542,12 @@
           <ol class="ipw-steps">
             <li><span><b>Im Browser öffnen</b> und anmelden — oder kostenlos ein Konto anlegen.</span></li>
             <li><span><b>„Teilen“ → „Zum Home-Bildschirm“</b> antippen.</span></li>
-            <li><span><b>Fertig:</b> KfzDex liegt wie eine App auf deinem Startbildschirm.</span></li>
+            <li><span><b>Fertig:</b> KfzDex liegt wie eine App auf deinem Home-Bildschirm.</span></li>
           </ol>
           <div class="cta"><a class="btn" href="https://dashboard.dexware.app/app/kfzdex/vor-ort" target="_blank" rel="noopener">Im Browser öffnen</a></div>
-          <p class="fine">Gut zu wissen: Im Funkloch bleiben deine Eingaben auf dem Gerät und werden gesendet, sobald wieder Netz da ist. Erinnerungen und einige Extras gibt es vorerst nur in der Android-App. Es gelten dieselben Gratis-Grenzen wie in der App.</p>
+          <p class="fine">Gut zu wissen: Im Funkloch bleiben deine Eingaben auf dem Gerät und werden gesendet, sobald wieder Netz da ist. Fotos, Unterschrift, PDF-Protokoll und Erinnerungen gibt es vorerst nur in der Android-App. Es gelten dieselben Gratis-Grenzen wie in der App.</p>
           <div class="ipw-buy">
-            <div class="ipw-buy-head"><b>KfzDex Pro direkt im Browser kaufen</b><small>Ohne App-Store — Karte oder PayPal, Preise inkl. USt.</small></div>
+            <div class="ipw-buy-head"><b>KfzDex Pro direkt im Browser kaufen</b><small>Ohne App Store — Karte oder PayPal, Preise inkl. MwSt.</small></div>
             <div class="ipw-plans"><div><span>Jährlich</span><b>79,99 €</b><small>pro Jahr</small></div><div><span>Monatlich</span><b>9,99 €</b><small>pro Monat</small></div></div>
             <span class="btn off" aria-disabled="true">In Kürze verfügbar</span>
             <p>14 Tage Geld zurück · jederzeit kündbar · Verkäufer und Zahlungsabwicklung: Paddle. Der Tarif gilt für dein Konto — im Browser und später in der App. Bis dahin gibt es Pro in der Android-App.</p>
