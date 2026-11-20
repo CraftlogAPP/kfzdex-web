@@ -352,6 +352,8 @@
     @media (max-width: 900px) { .hero.staged { min-height: 0; } }
 
     .st-block .fl { position: absolute; background: var(--accent); }
+    @media (prefers-reduced-motion: no-preference) { .st-block .fl { animation: block-in 1.1s cubic-bezier(.16,.84,.24,1) both; transform-origin: 100% 50%; } }
+    @keyframes block-in { from { opacity: 0; scale: .86; } }
     .st-block .fl { right: -9%; top: 50%; width: min(58vw, 820px); aspect-ratio: 1; translate: 0 -50%; border-radius: 50%; }
     .st-block .fl::after { content: ''; position: absolute; inset: 7%; border-radius: 50%; border: 2px solid color-mix(in oklab, var(--on-accent) 30%, transparent); }
     .st-block .word { position: absolute; left: -1.5vw; bottom: -5.2vw; font-size: clamp(120px, 23vw, 380px); line-height: 1; font-weight: 850; letter-spacing: -.055em;
