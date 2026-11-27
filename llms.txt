@@ -1,0 +1,63 @@
+# KfzDex
+
+> KfzDex ist eine App von Dexware. UVV-Prüfung nach DGUV Vorschrift 70 und Führerscheinkontrolle per App: Checkliste zur Fahrzeugkontrolle, Fristen-Ampel und PDF-Nachweise für den Fuhrpark. Android-App bei Google Play, am iPhone im Browser. Gratis: 1 Fahrzeug, 2 Fahrer; Pro 9,99 € im Monat oder 79,99 € im Jahr.
+
+Sachliche Kurzinfo für Sprachmodelle und Suchdienste. Maßgeblich sind die Angaben auf https://kfzdex.dexware.app/. Anbieter: Dexware (https://dexware.app/), Kontakt: support@dexware.app.
+
+## Was KfzDex macht
+
+- Fristen-Ampel und Erinnerungen: Überfällig, bald fällig oder erledigt, sortiert nach Dringlichkeit. Am Fälligkeitstag kommt eine Erinnerung, keine Frist rutscht mehr durch.
+- UVV-Prüfung und Führerscheinkontrolle: UVV in wenigen Minuten: 10 Prüfpunkte nach DGUV Vorschrift 70, von Bremsen bis Warndreieck. Führerschein per geführter Sichtprüfung, ein freiwilliges Foto bleibt nur auf dem Gerät. Intervall je Fahrer 3, 6 oder 12 Monate.
+- PDF-Nachweise fürs Team: Jede Prüfung als PDF-Protokoll mit Checkliste, Mängeln und Unterschriftszeilen. Per Einladungscode prüft der Meister in der Halle, das Büro exportiert die Nachweise. Am PC zeigt das Dexware-Dashboard Fahrzeuge, Fahrer und alle Fristen mit Ampel.
+
+## Am PC im Dexware-Dashboard
+
+Was du in der App prüfst und kontrollierst, siehst du im Dexware-Dashboard am Computer — mit demselben Konto, ohne Installation.
+
+- UVV und Führerschein: Fällige UVV-Prüfungen und Führerscheinkontrollen in zwei Listen, mit Ampel und Fuhrpark-Gesundheit.
+- Historie je Fahrzeug und Fahrer: Jede UVV-Prüfung mit Checkliste, Ergebnis und Mängeln, jede Führerscheinkontrolle mit Datum und Prüfer.
+- Excel rein und raus: Fahrzeuge und Fahrer aus einer Liste einlesen, den ganzen Fuhrpark mit Fristen als Excel-Datei.
+- Team per Einladungscode: Code ansehen und erneuern, Mitglieder mit Rolle sehen. Das Team gehört zu Pro.
+
+## Preise
+
+- Gratis (zum Ausprobieren und für Kleinstbetriebe): 1 Fahrzeug, 2 Fahrer; UVV-Checkliste & Führerscheinkontrolle; Fristen-Ampel & Erinnerungen; PDF-Nachweise & Historie
+- Pro: 9,99 € im Monat oder 79,99 € im Jahr. Enthält: Unbegrenzt Fahrzeuge & Fahrer; Team mit bis zu 20 Mitarbeitern; Alles aus Free; Ein Preis — egal wie groß der Fuhrpark
+- Stufen nach Teamgröße (ein Abo pro Betrieb, Mitarbeiter treten per Team-Code bei und brauchen kein eigenes Abo):
+  - Pro (bis 20 Mitarbeiter): 9,99 € im Monat · 79,99 € im Jahr
+  - Team (bis 50 Mitarbeiter): 14,99 € im Monat · 119,99 € im Jahr
+  - Team XL (bis 100 Mitarbeiter): 19,99 € im Monat · 159,99 € im Jahr
+  - Unternehmen (über 100 Mitarbeiter): Angebot · auf Rechnung
+- Preise inkl. MwSt., Abo jederzeit kündbar.
+
+## Kurz beantwortet
+
+- Ist die UVV-Prüfung dasselbe wie die HU? Nein. Die HU nach § 29 StVZO prüft die Verkehrssicherheit, bei Pkw in der Regel alle 24 Monate durch TÜV, DEKRA und Co. Die UVV-Prüfung nach DGUV Vorschrift 70 prüft den betriebssicheren Zustand, mindestens jährlich und durch einen Sachkundigen.
+- Gibt es eine Checkliste für die Fahrzeugkontrolle im Fuhrpark? Ja, für die UVV-Prüfung bringt KfzDex 10 Prüfpunkte nach DGUV Vorschrift 70 mit, von Bremsen bis Warndreieck; Mängel landen im PDF-Protokoll.
+- Wer darf die UVV-Prüfung durchführen? Ein Sachkundiger bzw. eine befähigte Person — typischerweise Kfz-Meister, Kfz-Techniker oder eine Fachwerkstatt. KfzDex führt durch die Checkliste und dokumentiert das Ergebnis.
+- Wie oft muss der Führerschein kontrolliert werden? Das Gesetz nennt keine feste Frist; üblich ist eine Kontrolle bei Fahrzeugüberlassung und danach zweimal jährlich. Vorgelegt wird das Original, eine Kopie im Personalordner reicht nicht.
+- Zahle ich pro Fahrzeug? Nein. Pro kostet einen festen Preis für den ganzen Betrieb — egal ob 3 oder 30 Fahrzeuge. Große Fuhrpark-Anbieter rechnen dagegen oft 10 bis 20 € pro Fahrzeug und Monat ab.
+- Wo liegen meine Daten? In einem Rechenzentrum in der EU-Region. Fotos vom Führerschein bleiben auf deinem Gerät. Details in der Datenschutzerklärung.
+- Alle Antworten: https://kfzdex.dexware.app/#faq
+
+## Seiten
+
+- [Startseite](https://kfzdex.dexware.app/): Funktionen, Preise, häufige Fragen
+- [Preise](https://kfzdex.dexware.app/#preise): Gratis, Pro und Stufen nach Teamgröße
+- [Häufige Fragen](https://kfzdex.dexware.app/#faq)
+- [KfzDex am iPhone](https://kfzdex.dexware.app/#iphone): im Browser, ohne App Store
+- [Dexware-Dashboard](https://dashboard.dexware.app/app/kfzdex): am PC im Browser, mit demselben Konto
+- [Google Play](https://play.google.com/store/apps/details?id=com.kfzdex.app): Android-App
+- [Dexware](https://dexware.app/): alle Apps von Dexware
+
+## Ratgeber
+
+- [Führerscheinkontrolle im Betrieb: Pflicht und Intervall](https://kfzdex.dexware.app/ratgeber-fuehrerscheinkontrolle.html): Führerscheinkontrolle im Fuhrpark: Warum § 21 StVG den Halter in die Pflicht nimmt, welches Intervall sich etabliert hat (bei Einstellung plus zweimal jährlich), warum das Original geprüft werden muss und was in die Dokumentation gehört.
+- [UVV-Prüfung für Firmenfahrzeuge (DGUV V 70)](https://kfzdex.dexware.app/ratgeber-uvv-fuhrpark.html): UVV-Prüfung Pflicht für Firmenfahrzeuge nach DGUV Vorschrift 70: jährlich durch einen Sachkundigen — nicht identisch mit der HU. Dazu Führerscheinkontrolle (üblich halbjährlich), Fahrerunterweisung und Halterhaftung im Fuhrpark verständlich erklärt.
+
+## Rechtliches
+
+- [Impressum](https://kfzdex.dexware.app/impressum.html)
+- [Datenschutz](https://kfzdex.dexware.app/datenschutz.html)
+- [AGB](https://kfzdex.dexware.app/agb.html)
+- [AVV](https://kfzdex.dexware.app/avv.html)
