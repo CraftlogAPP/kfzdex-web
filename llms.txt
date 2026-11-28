@@ -52,8 +52,8 @@ Was du in der App prüfst und kontrollierst, siehst du im Dexware-Dashboard am C
 
 ## Ratgeber
 
-- [Führerscheinkontrolle im Betrieb: Pflicht und Intervall](https://kfzdex.dexware.app/ratgeber-fuehrerscheinkontrolle.html): Führerscheinkontrolle im Fuhrpark: Warum § 21 StVG den Halter in die Pflicht nimmt, welches Intervall sich etabliert hat (bei Einstellung plus zweimal jährlich), warum das Original geprüft werden muss und was in die Dokumentation gehört.
-- [UVV-Prüfung für Firmenfahrzeuge (DGUV V 70)](https://kfzdex.dexware.app/ratgeber-uvv-fuhrpark.html): UVV-Prüfung Pflicht für Firmenfahrzeuge nach DGUV Vorschrift 70: jährlich durch einen Sachkundigen — nicht identisch mit der HU. Dazu Führerscheinkontrolle (üblich halbjährlich), Fahrerunterweisung und Halterhaftung im Fuhrpark verständlich erklärt.
+- [Führerscheinkontrolle im Betrieb: Pflicht und Intervall](https://kfzdex.dexware.app/ratgeber-fuehrerscheinkontrolle.html): Führerscheinkontrolle im Fuhrpark: warum § 21 StVG den Halter verpflichtet, welches Intervall üblich ist, warum das Original zählt, was dokumentiert wird.
+- [UVV-Prüfung für Firmenfahrzeuge (DGUV V 70)](https://kfzdex.dexware.app/ratgeber-uvv-fuhrpark.html): UVV-Prüfung für Firmenfahrzeuge nach DGUV Vorschrift 70: jährlich durch einen Sachkundigen, nicht gleich HU. Dazu Führerscheinkontrolle und Halterhaftung.
 
 ## Rechtliches
 
